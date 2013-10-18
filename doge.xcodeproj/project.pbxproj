@@ -7,20 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E682F0B0F514091A76C3EDE /* libPods-doge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE0C5EECD5041A8B208419D /* libPods-doge.a */; };
+		B5217304180EA2D30088D821 /* PPLLabelContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217303180EA2D30088D821 /* PPLLabelContainerView.m */; };
+		B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217308180EDD3F0088D821 /* PPLColourPickerView.m */; };
+		B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */; };
+		B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382D180437940000B989 /* PPLEditorBottomToolbar.m */; };
+		B59DD92117FDA44800CCDE08 /* PPLBlankEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92017FDA44800CCDE08 /* PPLBlankEditorViewController.m */; };
+		B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92317FDA46400CCDE08 /* PPLBlankEditorView.m */; };
+		B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92817FF00EF00CCDE08 /* PPLEditorViewController.m */; };
+		B59DD92C17FF010200CCDE08 /* PPLEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92B17FF010200CCDE08 /* PPLEditorView.m */; };
+		B59DD93117FF05C400CCDE08 /* UINavigationController+DogeStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD93017FF05C400CCDE08 /* UINavigationController+DogeStyling.m */; };
+		B59DD9341802381700CCDE08 /* PPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD9331802381700CCDE08 /* PPLLabel.m */; };
+		B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BF3C331806A03500D705A0 /* PPLLabelEditorView.m */; };
+		B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BF3C3B1809355B00D705A0 /* PPLEditorLabel.m */; };
+		B5BF4198180D6E5900D705A0 /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5BF4197180D6E5900D705A0 /* demo.jpg */; };
+		B5BF419A180D6E9800D705A0 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BF4199180D6E9800D705A0 /* Reveal.framework */; };
 		B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C217FC601700F052FE /* Foundation.framework */; };
 		B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C417FC601700F052FE /* CoreGraphics.framework */; };
 		B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C617FC601700F052FE /* UIKit.framework */; };
 		B5D5D4CD17FC601700F052FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5D5D4CB17FC601700F052FE /* InfoPlist.strings */; };
 		B5D5D4CF17FC601700F052FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D4CE17FC601700F052FE /* main.m */; };
 		B5D5D4D317FC601700F052FE /* PPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D4D217FC601700F052FE /* PPLAppDelegate.m */; };
-		B5D5D4D617FC601700F052FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D5D4D417FC601700F052FE /* Main.storyboard */; };
-		B5D5D4D917FC601700F052FE /* PPLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D4D817FC601700F052FE /* PPLViewController.m */; };
 		B5D5D4DB17FC601700F052FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D5D4DA17FC601700F052FE /* Images.xcassets */; };
 		B5D5D4E217FC601700F052FE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4E117FC601700F052FE /* XCTest.framework */; };
 		B5D5D4E317FC601700F052FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C217FC601700F052FE /* Foundation.framework */; };
 		B5D5D4E417FC601700F052FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C617FC601700F052FE /* UIKit.framework */; };
 		B5D5D4EC17FC601700F052FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5D5D4EA17FC601700F052FE /* InfoPlist.strings */; };
 		B5D5D4EE17FC601700F052FE /* dogeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D4ED17FC601700F052FE /* dogeTests.m */; };
+		B5D5D50217FD2DDF00F052FE /* PPLHamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */; };
+		B5FCB3FE18115F0B002E5B43 /* PPLInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB3FD18115F0B002E5B43 /* PPLInsetTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +49,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C699482359144809D4A3CFD /* Pods-doge.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doge.xcconfig"; path = "Pods/Pods-doge.xcconfig"; sourceTree = "<group>"; };
+		0CE0C5EECD5041A8B208419D /* libPods-doge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-doge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5217302180EA2D30088D821 /* PPLLabelContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLLabelContainerView.h; sourceTree = "<group>"; };
+		B5217303180EA2D30088D821 /* PPLLabelContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLLabelContainerView.m; sourceTree = "<group>"; };
+		B5217307180EDD3F0088D821 /* PPLColourPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLColourPickerView.h; sourceTree = "<group>"; };
+		B5217308180EDD3F0088D821 /* PPLColourPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLColourPickerView.m; sourceTree = "<group>"; };
+		B52638291804324F0000B989 /* PPLEditorTopToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorTopToolbar.h; sourceTree = "<group>"; };
+		B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorTopToolbar.m; sourceTree = "<group>"; };
+		B526382C180437940000B989 /* PPLEditorBottomToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorBottomToolbar.h; sourceTree = "<group>"; };
+		B526382D180437940000B989 /* PPLEditorBottomToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorBottomToolbar.m; sourceTree = "<group>"; };
+		B59DD91F17FDA44800CCDE08 /* PPLBlankEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLBlankEditorViewController.h; sourceTree = "<group>"; };
+		B59DD92017FDA44800CCDE08 /* PPLBlankEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLBlankEditorViewController.m; sourceTree = "<group>"; };
+		B59DD92217FDA46400CCDE08 /* PPLBlankEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLBlankEditorView.h; sourceTree = "<group>"; };
+		B59DD92317FDA46400CCDE08 /* PPLBlankEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLBlankEditorView.m; sourceTree = "<group>"; };
+		B59DD92717FF00EF00CCDE08 /* PPLEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorViewController.h; sourceTree = "<group>"; };
+		B59DD92817FF00EF00CCDE08 /* PPLEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorViewController.m; sourceTree = "<group>"; };
+		B59DD92A17FF010200CCDE08 /* PPLEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorView.h; sourceTree = "<group>"; };
+		B59DD92B17FF010200CCDE08 /* PPLEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorView.m; sourceTree = "<group>"; };
+		B59DD92F17FF05C400CCDE08 /* UINavigationController+DogeStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+DogeStyling.h"; sourceTree = "<group>"; };
+		B59DD93017FF05C400CCDE08 /* UINavigationController+DogeStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+DogeStyling.m"; sourceTree = "<group>"; };
+		B59DD9321802381700CCDE08 /* PPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLLabel.h; sourceTree = "<group>"; };
+		B59DD9331802381700CCDE08 /* PPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLLabel.m; sourceTree = "<group>"; };
+		B5BF3C321806A03500D705A0 /* PPLLabelEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLLabelEditorView.h; sourceTree = "<group>"; };
+		B5BF3C331806A03500D705A0 /* PPLLabelEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLLabelEditorView.m; sourceTree = "<group>"; };
+		B5BF3C3A1809355B00D705A0 /* PPLEditorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorLabel.h; sourceTree = "<group>"; };
+		B5BF3C3B1809355B00D705A0 /* PPLEditorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorLabel.m; sourceTree = "<group>"; };
+		B5BF4197180D6E5900D705A0 /* demo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo.jpg; sourceTree = "<group>"; };
+		B5BF4199180D6E9800D705A0 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		B5D5D4BF17FC601700F052FE /* doge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D5D4C217FC601700F052FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5D5D4C417FC601700F052FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,15 +87,17 @@
 		B5D5D4D017FC601700F052FE /* doge-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "doge-Prefix.pch"; sourceTree = "<group>"; };
 		B5D5D4D117FC601700F052FE /* PPLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPLAppDelegate.h; sourceTree = "<group>"; };
 		B5D5D4D217FC601700F052FE /* PPLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPLAppDelegate.m; sourceTree = "<group>"; };
-		B5D5D4D517FC601700F052FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B5D5D4D717FC601700F052FE /* PPLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPLViewController.h; sourceTree = "<group>"; };
-		B5D5D4D817FC601700F052FE /* PPLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPLViewController.m; sourceTree = "<group>"; };
 		B5D5D4DA17FC601700F052FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5D5D4E017FC601700F052FE /* dogeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dogeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D5D4E117FC601700F052FE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B5D5D4E917FC601700F052FE /* dogeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dogeTests-Info.plist"; sourceTree = "<group>"; };
 		B5D5D4EB17FC601700F052FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5D5D4ED17FC601700F052FE /* dogeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dogeTests.m; sourceTree = "<group>"; };
+		B5D5D50017FD2DDF00F052FE /* PPLHamburgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLHamburgerViewController.h; sourceTree = "<group>"; };
+		B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLHamburgerViewController.m; sourceTree = "<group>"; };
+		B5D5D50317FD544900F052FE /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
+		B5FCB3FC18115F0B002E5B43 /* PPLInsetTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLInsetTextField.h; sourceTree = "<group>"; };
+		B5FCB3FD18115F0B002E5B43 /* PPLInsetTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLInsetTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +107,9 @@
 			files = (
 				B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */,
 				B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */,
+				B5BF419A180D6E9800D705A0 /* Reveal.framework in Frameworks */,
 				B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */,
+				4E682F0B0F514091A76C3EDE /* libPods-doge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +126,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B59DD92E17FF05BA00CCDE08 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B59DD92F17FF05C400CCDE08 /* UINavigationController+DogeStyling.h */,
+				B59DD93017FF05C400CCDE08 /* UINavigationController+DogeStyling.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		B5BF4196180D6E5100D705A0 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5BF4197180D6E5900D705A0 /* demo.jpg */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		B5D5D4B617FC601700F052FE = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +150,7 @@
 				B5D5D4E717FC601700F052FE /* dogeTests */,
 				B5D5D4C117FC601700F052FE /* Frameworks */,
 				B5D5D4C017FC601700F052FE /* Products */,
+				0C699482359144809D4A3CFD /* Pods-doge.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +166,12 @@
 		B5D5D4C117FC601700F052FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5BF4199180D6E9800D705A0 /* Reveal.framework */,
 				B5D5D4C217FC601700F052FE /* Foundation.framework */,
 				B5D5D4C417FC601700F052FE /* CoreGraphics.framework */,
 				B5D5D4C617FC601700F052FE /* UIKit.framework */,
 				B5D5D4E117FC601700F052FE /* XCTest.framework */,
+				0CE0C5EECD5041A8B208419D /* libPods-doge.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +179,11 @@
 		B5D5D4C817FC601700F052FE /* doge */ = {
 			isa = PBXGroup;
 			children = (
+				B5D5D4F717FC613D00F052FE /* shared */,
+				B5D5D4F817FC613D00F052FE /* editor */,
+				B5D5D4FB17FC613D00F052FE /* hamburger */,
 				B5D5D4D117FC601700F052FE /* PPLAppDelegate.h */,
 				B5D5D4D217FC601700F052FE /* PPLAppDelegate.m */,
-				B5D5D4D417FC601700F052FE /* Main.storyboard */,
-				B5D5D4D717FC601700F052FE /* PPLViewController.h */,
-				B5D5D4D817FC601700F052FE /* PPLViewController.m */,
 				B5D5D4DA17FC601700F052FE /* Images.xcassets */,
 				B5D5D4C917FC601700F052FE /* Supporting Files */,
 			);
@@ -126,6 +193,7 @@
 		B5D5D4C917FC601700F052FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5BF4196180D6E5100D705A0 /* resources */,
 				B5D5D4CA17FC601700F052FE /* doge-Info.plist */,
 				B5D5D4CB17FC601700F052FE /* InfoPlist.strings */,
 				B5D5D4CE17FC601700F052FE /* main.m */,
@@ -152,6 +220,103 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5D5D4F717FC613D00F052FE /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				B5FCB3FB18115EFA002E5B43 /* views */,
+				B59DD92E17FF05BA00CCDE08 /* controllers */,
+				B5D5D4FF17FC615D00F052FE /* models */,
+				B5D5D50317FD544900F052FE /* Shared.h */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		B5D5D4F817FC613D00F052FE /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				B5D5D4F917FC613D00F052FE /* controllers */,
+				B5D5D4FA17FC613D00F052FE /* views */,
+			);
+			path = editor;
+			sourceTree = "<group>";
+		};
+		B5D5D4F917FC613D00F052FE /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B59DD91F17FDA44800CCDE08 /* PPLBlankEditorViewController.h */,
+				B59DD92017FDA44800CCDE08 /* PPLBlankEditorViewController.m */,
+				B59DD92717FF00EF00CCDE08 /* PPLEditorViewController.h */,
+				B59DD92817FF00EF00CCDE08 /* PPLEditorViewController.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		B5D5D4FA17FC613D00F052FE /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B59DD92217FDA46400CCDE08 /* PPLBlankEditorView.h */,
+				B59DD92317FDA46400CCDE08 /* PPLBlankEditorView.m */,
+				B59DD92A17FF010200CCDE08 /* PPLEditorView.h */,
+				B59DD92B17FF010200CCDE08 /* PPLEditorView.m */,
+				B52638291804324F0000B989 /* PPLEditorTopToolbar.h */,
+				B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */,
+				B526382C180437940000B989 /* PPLEditorBottomToolbar.h */,
+				B526382D180437940000B989 /* PPLEditorBottomToolbar.m */,
+				B5BF3C321806A03500D705A0 /* PPLLabelEditorView.h */,
+				B5BF3C331806A03500D705A0 /* PPLLabelEditorView.m */,
+				B5BF3C3A1809355B00D705A0 /* PPLEditorLabel.h */,
+				B5BF3C3B1809355B00D705A0 /* PPLEditorLabel.m */,
+				B5217302180EA2D30088D821 /* PPLLabelContainerView.h */,
+				B5217303180EA2D30088D821 /* PPLLabelContainerView.m */,
+				B5217307180EDD3F0088D821 /* PPLColourPickerView.h */,
+				B5217308180EDD3F0088D821 /* PPLColourPickerView.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B5D5D4FB17FC613D00F052FE /* hamburger */ = {
+			isa = PBXGroup;
+			children = (
+				B5D5D4FC17FC613D00F052FE /* controllers */,
+				B5D5D4FD17FC613D00F052FE /* views */,
+			);
+			path = hamburger;
+			sourceTree = "<group>";
+		};
+		B5D5D4FC17FC613D00F052FE /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5D5D50017FD2DDF00F052FE /* PPLHamburgerViewController.h */,
+				B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		B5D5D4FD17FC613D00F052FE /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B5D5D4FF17FC615D00F052FE /* models */ = {
+			isa = PBXGroup;
+			children = (
+				B59DD9321802381700CCDE08 /* PPLLabel.h */,
+				B59DD9331802381700CCDE08 /* PPLLabel.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		B5FCB3FB18115EFA002E5B43 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B5FCB3FC18115F0B002E5B43 /* PPLInsetTextField.h */,
+				B5FCB3FD18115F0B002E5B43 /* PPLInsetTextField.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +324,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5D5D4F117FC601700F052FE /* Build configuration list for PBXNativeTarget "doge" */;
 			buildPhases = (
+				8423DD42736C4E4EB5CF8B9A /* Check Pods Manifest.lock */,
 				B5D5D4BB17FC601700F052FE /* Sources */,
 				B5D5D4BC17FC601700F052FE /* Frameworks */,
 				B5D5D4BD17FC601700F052FE /* Resources */,
+				EE8DBF8F33114BC3948A8F0E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,8 +397,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D5D4DB17FC601700F052FE /* Images.xcassets in Resources */,
+				B5BF4198180D6E5900D705A0 /* demo.jpg in Resources */,
 				B5D5D4CD17FC601700F052FE /* InfoPlist.strings in Resources */,
-				B5D5D4D617FC601700F052FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,14 +412,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8423DD42736C4E4EB5CF8B9A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE8DBF8F33114BC3948A8F0E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-doge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5D5D4BB17FC601700F052FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D5D50217FD2DDF00F052FE /* PPLHamburgerViewController.m in Sources */,
+				B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */,
+				B59DD9341802381700CCDE08 /* PPLLabel.m in Sources */,
 				B5D5D4CF17FC601700F052FE /* main.m in Sources */,
+				B5217304180EA2D30088D821 /* PPLLabelContainerView.m in Sources */,
+				B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */,
+				B5FCB3FE18115F0B002E5B43 /* PPLInsetTextField.m in Sources */,
 				B5D5D4D317FC601700F052FE /* PPLAppDelegate.m in Sources */,
-				B5D5D4D917FC601700F052FE /* PPLViewController.m in Sources */,
+				B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */,
+				B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */,
+				B59DD93117FF05C400CCDE08 /* UINavigationController+DogeStyling.m in Sources */,
+				B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */,
+				B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */,
+				B59DD92C17FF010200CCDE08 /* PPLEditorView.m in Sources */,
+				B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */,
+				B59DD92117FDA44800CCDE08 /* PPLBlankEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +494,6 @@
 				B5D5D4CC17FC601700F052FE /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B5D5D4D417FC601700F052FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5D5D4D517FC601700F052FE /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B5D5D4EA17FC601700F052FE /* InfoPlist.strings */ = {
@@ -376,12 +581,19 @@
 		};
 		B5D5D4F217FC601700F052FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C699482359144809D4A3CFD /* Pods-doge.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ben/Dropbox/Projects/Doge/Development/doge,
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "doge/doge-Prefix.pch";
 				INFOPLIST_FILE = "doge/doge-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,12 +601,19 @@
 		};
 		B5D5D4F317FC601700F052FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C699482359144809D4A3CFD /* Pods-doge.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ben/Dropbox/Projects/Doge/Development/doge,
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "doge/doge-Prefix.pch";
 				INFOPLIST_FILE = "doge/doge-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -461,6 +680,7 @@
 				B5D5D4F317FC601700F052FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5D5D4F417FC601700F052FE /* Build configuration list for PBXNativeTarget "dogeTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +689,7 @@
 				B5D5D4F617FC601700F052FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

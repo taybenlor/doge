@@ -1,0 +1,17 @@
+PODS:
+  - EnumeratorKit (0.1.1):
+    - EnumeratorKit/Core
+  - EnumeratorKit/Core (0.1.1):
+    - EnumeratorKit/EKFiber
+  - EnumeratorKit/EKFiber (0.1.1)
+  - Masonry (0.2.4)
+
+DEPENDENCIES:
+  - EnumeratorKit
+  - Masonry
+
+SPEC CHECKSUMS:
+  EnumeratorKit: 811a35e8f9a7f043f4a92492af0e1b0f70b5ec48
+  Masonry: 73df2f346bd1a0044dc9de969aa45aea2f8a9bd8
+
+COCOAPODS: 0.25.0

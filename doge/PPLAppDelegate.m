@@ -7,13 +7,35 @@
 //
 
 #import "PPLAppDelegate.h"
+#import "PPLHamburgerViewController.h"
+#import "PPLBlankEditorViewController.h"
+#import "UINavigationController+DogeStyling.h"
+
+@interface PPLAppDelegate ()
+
+@property UINavigationController *navigationController;
+@property PPLHamburgerViewController *hamburgerController;
+
+@end
 
 @implementation PPLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+  PPLBlankEditorViewController *mainViewController = [[PPLBlankEditorViewController alloc] init];
+  UIViewController *menuViewController = [[UIViewController alloc] init];
+  self.navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+  self.hamburgerController = [[PPLHamburgerViewController alloc] initWithMain:self.navigationController
+                                                                         menu:menuViewController];
+  
+  [self.navigationController styleForDoge];
+  
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window.rootViewController = self.hamburgerController;
+  self.window.backgroundColor = [UIColor blackColor];
+  [self.window makeKeyAndVisible];
+  
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
