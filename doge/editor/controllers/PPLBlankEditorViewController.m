@@ -20,7 +20,7 @@
 - (id) init {
   if (self = [super init]) {
     self.view = [[PPLBlankEditorView alloc] initWithController:self];
-    self.navigationItem.title = @"Doge App";
+    self.navigationItem.title = @"instadoge";
   }
   return self;
 }

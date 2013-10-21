@@ -23,6 +23,7 @@
 
 - (void) addLabelTriggered;
 - (void) addDogeTriggered;
+- (void) shareDogeTriggered;
 
 - (void) selectLabelTriggered:(PPLLabel *)label;
 

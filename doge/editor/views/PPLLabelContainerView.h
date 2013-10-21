@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPLLabel.h"
+#import "PPLEditorLabel.h"
 
 @class PPLLabelContainerView;
 @protocol PPLLabelContainerViewDataSource <NSObject>
@@ -15,10 +17,19 @@
 
 @end
 
+@protocol PPLLabelContainerViewDelegate <NSObject>
 
-@interface PPLLabelContainerView : UIView
+- (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didSelectLabel:(PPLLabel *)label;
+- (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didDeselectLabel:(PPLLabel *)label;
+- (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didTriggerEditOnLabel:(PPLLabel *)label;
+
+@end
+
+
+@interface PPLLabelContainerView : UIView <PPLEditorLabelDelegate>
 
 @property (weak, nonatomic) id<PPLLabelContainerViewDataSource> dataSource;
+@property (weak, nonatomic) id<PPLLabelContainerViewDelegate> delegate;
 
 - (void) reloadData;
 

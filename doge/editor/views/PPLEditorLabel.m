@@ -7,6 +7,7 @@
 //
 
 #import "PPLEditorLabel.h"
+#import "PPLDashedRoundedRectView.h"
 
 #define BORDER_PAD 6.0
 #define BORDER_WIDTH 2.0
@@ -17,7 +18,8 @@
 @property id<MASConstraint> leftConstraint;
 @property id<MASConstraint> topConstraint;
 
-@property UIView *borderView;
+@property PPLDashedRoundedRectView *borderView;
+@property UITapGestureRecognizer *doubleTapRecognizer;
 
 @end
 
@@ -26,6 +28,9 @@
 - (id) init {
   if (self = [super init]) {
     self.clipsToBounds = NO;
+    self.doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapped)];
+    self.doubleTapRecognizer.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:self.doubleTapRecognizer];
   }
   return self;
 }
@@ -36,6 +41,12 @@
   }
   return self;
 }
+
+- (void) dealloc {
+  [self unobserveLabel];
+  [self removeGestureRecognizer:self.doubleTapRecognizer];
+}
+
 
 #pragma mark - Public Methods
 
@@ -60,10 +71,17 @@
       }];
     }
   }
+  [self.borderView setNeedsDisplay];
 }
 
 
 #pragma mark - Private Methods
+
+- (void) doubleTapped {
+  if ([self.delegate respondsToSelector:@selector(editorLabelDidTriggerEdit:)]) {
+    [self.delegate editorLabelDidTriggerEdit:self];
+  }
+}
 
 - (void) observeLabel {
   [self.label addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
@@ -103,14 +121,11 @@
   _editing = editing;
   
   if (editing) {
-    self.borderView = [[UIView alloc] init];
+    self.borderView = [[PPLDashedRoundedRectView alloc] init];
     [self addSubview:self.borderView];
     [self.borderView makeConstraints:^(MASConstraintMaker *make) {
       make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(-BORDER_PAD/6, -BORDER_PAD, -BORDER_PAD, -BORDER_PAD));
     }];
-    self.borderView.layer.borderColor = DOGE_RED.CGColor;
-    self.borderView.layer.borderWidth = BORDER_WIDTH;
-    self.borderView.layer.cornerRadius = CORNER_RADIUS;
   } else {
     [self.borderView removeFromSuperview];
     self.borderView = nil;

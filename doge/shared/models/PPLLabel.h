@@ -16,4 +16,7 @@
 @property CGPoint position;
 @property CGFloat fontSize;
 
+- (void) increaseFontSize;
+- (void) decreaseFontSize;
+
 @end

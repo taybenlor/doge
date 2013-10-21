@@ -7,7 +7,6 @@
 //
 
 #import "PPLLabelContainerView.h"
-#import "PPLEditorLabel.h"
 
 @interface PPLLabelContainerView()
 
@@ -15,7 +14,6 @@
 
 @property PPLEditorLabel *draggingLabel;
 @property CGPoint lastTouchLocation;
-//@property CGPoint dragOffset;
 
 @end
 
@@ -33,18 +31,47 @@
 #pragma mark - Public Methods
 
 - (void) reloadData {
+  for (PPLEditorLabel *label in self.editorLabels) {
+    [label removeFromSuperview];
+  }
+  
+  self.editorLabels = [NSMutableArray array];
   for (PPLLabel *label in [self.dataSource labelsForLabelContainerView:self]) {
-    BOOL exists = self.editorLabels.filter(^(PPLEditorLabel *editorLabel){
-      return [editorLabel.label isEqual:label];
-    }).count > 0;
+    PPLEditorLabel *editorLabel = [[PPLEditorLabel alloc] initWithLabel:label];
+    editorLabel.delegate = self;
+    [self addSubview:editorLabel];
+    [editorLabel updateAttributes];
     
-    if (!exists) {
-      PPLEditorLabel *editorLabel = [[PPLEditorLabel alloc] initWithLabel:label];
-      [self addSubview:editorLabel];
-      [editorLabel updateAttributes];
-      
-      [self.editorLabels addObject:editorLabel];
-    }
+    [self.editorLabels addObject:editorLabel];
+  }
+}
+
+
+#pragma mark - EditorLabelDelegate
+
+- (void) editorLabelDidTriggerEdit:(PPLEditorLabel *)editorLabel {
+  if ([self.delegate respondsToSelector:@selector(labelContainerView:didTriggerEditOnLabel:)]) {
+    [self.delegate labelContainerView:self didTriggerEditOnLabel:editorLabel.label];
+  }
+}
+
+
+#pragma mark - Private Methods
+
+- (void) selectEditorLabel:(PPLEditorLabel *)editorLabel {
+  editorLabel.editing = YES;
+  self.draggingLabel = editorLabel;
+  
+  if ([self.delegate respondsToSelector:@selector(labelContainerView:didSelectLabel:)]) {
+    [self.delegate labelContainerView:self didSelectLabel:editorLabel.label];
+  }
+}
+
+- (void) deselectCurrentEditorLabel {
+  PPLEditorLabel *currentLabel = self.draggingLabel;
+  self.draggingLabel = nil;
+  if ([self.delegate respondsToSelector:@selector(labelContainerView:didDeselectLabel:)]) {
+    [self.delegate labelContainerView:self didDeselectLabel:currentLabel.label];
   }
 }
 
@@ -61,13 +88,15 @@
     editorLabel.editing = NO;
   });
   
-  self.editorLabels.each(^(PPLEditorLabel *editorLabel){
+  for (PPLEditorLabel *editorLabel in self.editorLabels) {
     if (CGRectContainsPoint(editorLabel.frame, location)) {
-      editorLabel.editing = YES;
-      self.draggingLabel = editorLabel;
       self.lastTouchLocation = location;
+      [self selectEditorLabel:editorLabel];
+      return;
     }
-  });
+  }
+  
+  [self deselectCurrentEditorLabel];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -78,8 +107,8 @@
   CGFloat diffX = (location.x - self.lastTouchLocation.x)/self.frame.size.width;
   CGFloat diffY = (location.y - self.lastTouchLocation.y)/self.frame.size.height;
   CGPoint labelPos = self.draggingLabel.label.position;
-  CGFloat newX = MIN(MAX(labelPos.x + diffX, 0), 1.0);
-  CGFloat newY = MIN(MAX(labelPos.y + diffY, 0), 1.0);
+  CGFloat newX = MIN(MAX(labelPos.x + diffX, -0.15), 0.9);
+  CGFloat newY = MIN(MAX(labelPos.y + diffY, -0.15), 0.9);
   CGPoint newPos = CGPointMake(newX, newY);
   self.draggingLabel.label.position = newPos;
   [self layoutIfNeeded];

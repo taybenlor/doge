@@ -22,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  srand48(time(0));
   PPLBlankEditorViewController *mainViewController = [[PPLBlankEditorViewController alloc] init];
   UIViewController *menuViewController = [[UIViewController alloc] init];
   self.navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
@@ -29,6 +30,7 @@
                                                                          menu:menuViewController];
   
   [self.navigationController styleForDoge];
+  [self styleApplication];
   
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.rootViewController = self.hamburgerController;
@@ -36,6 +38,11 @@
   [self.window makeKeyAndVisible];
   
   return YES;
+}
+
+- (void) styleApplication {
+  [UIBarButtonItem appearance].tintColor = DOGE_RED;
+  //[UIButton appearance].tintColor = DOGE_RED;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

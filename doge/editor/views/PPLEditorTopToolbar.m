@@ -11,7 +11,7 @@
 @interface PPLEditorTopToolbar ()
 
 @property UIBarButtonItem *addLabelButton;
-@property UIBarButtonItem *addDogeButton;
+@property UIBarButtonItem *shareDogeButton;
 
 @end
 
@@ -19,9 +19,18 @@
 
 - (id) init {
   if (self = [super init]) {
-    self.addLabelButton = [[UIBarButtonItem alloc] initWithTitle:@"+Label" style:UIBarButtonItemStylePlain target:self action:@selector(addLabelButtonTapped:)];
-    self.addDogeButton = [[UIBarButtonItem alloc] initWithTitle:@"+Doge" style:UIBarButtonItemStylePlain target:self action:@selector(addDogeButtonTapped:)];
-    self.items = @[self.addLabelButton, self.addDogeButton];
+    NSString *addLabelText = NSLocalizedString(@"plus text", @"add label button text");
+    NSString *shareDogeText = NSLocalizedString(@"share doge", @"add doge button text");
+    self.addLabelButton = [[UIBarButtonItem alloc] initWithTitle:addLabelText style:UIBarButtonItemStylePlain target:self action:@selector(addLabelButtonTapped:)];
+    self.shareDogeButton = [[UIBarButtonItem alloc] initWithTitle:shareDogeText style:UIBarButtonItemStylePlain target:self action:@selector(shareDogeButtonTapped:)];
+    
+    self.addLabelButton.width = 134; // TODO: Work out a nicer way to do this
+    self.shareDogeButton.width = 134;
+    
+    self.barStyle = UIBarStyleDefault;
+    self.translucent = YES;
+    
+    self.items = @[self.addLabelButton, self.shareDogeButton];
   }
   return self;
 }
@@ -39,8 +48,8 @@
   [self.editorView.controller addLabelTriggered];
 }
 
-- (void) addDogeButtonTapped:(id)sender {
-  [self.editorView.controller addDogeTriggered];
+- (void) shareDogeButtonTapped:(id)sender {
+  [self.editorView.controller shareDogeTriggered];
 }
 
 @end

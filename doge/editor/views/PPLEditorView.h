@@ -10,7 +10,7 @@
 #import "PPLEditorViewController.h"
 #import "PPLLabelContainerView.h"
 
-@interface PPLEditorView : UIView <PPLLabelContainerViewDataSource>
+@interface PPLEditorView : UIView <PPLLabelContainerViewDataSource, PPLLabelContainerViewDelegate>
 
 @property (nonatomic) PPLEditorViewController *controller;
 

@@ -12,9 +12,6 @@
 #import "PPLLabelEditorView.h"
 #import "PPLLabelContainerView.h"
 
-#define IMAGE_WIDTH @300
-#define IMAGE_HEIGHT @300
-
 @interface PPLEditorView ()
 
 @property UIImageView *imageView;
@@ -26,6 +23,8 @@
 @property PPLLabelEditorView *labelEditorView;
 
 @property (nonatomic) NSMutableSet *editorLabels;
+
+@property id<MASConstraint> bottomToolbarBottomConstraint;
 
 @end
 
@@ -39,17 +38,18 @@
     [self addSubview:self.imageView];
     [self.imageView makeConstraints:^(MASConstraintMaker *make) {
       make.center.equalTo(self);
-      make.width.equalTo(IMAGE_WIDTH);
-      make.height.equalTo(IMAGE_HEIGHT);
+      make.width.equalTo(@DISPLAY_IMAGE_WIDTH);
+      make.height.equalTo(@DISPLAY_IMAGE_HEIGHT);
     }];
     
     self.labelContainerView = [[PPLLabelContainerView alloc] init];
     self.labelContainerView.dataSource = self;
+    self.labelContainerView.delegate = self;
     [self addSubview:self.labelContainerView];
     [self.labelContainerView makeConstraints:^(MASConstraintMaker *make) {
       make.center.equalTo(self);
-      make.width.equalTo(IMAGE_WIDTH);
-      make.height.equalTo(IMAGE_HEIGHT);
+      make.width.equalTo(@DISPLAY_IMAGE_WIDTH);
+      make.height.equalTo(@DISPLAY_IMAGE_HEIGHT);
     }];
     
     UIImage *overlayImage = [UIImage imageNamed:@"editor-overlay.png"];
@@ -69,10 +69,9 @@
     }];
     
     self.bottomToolbar = [[PPLEditorBottomToolbar alloc] initWithEditorView:self];
-    self.bottomToolbar.hidden = YES;
     [self addSubview:self.bottomToolbar];
     [self.bottomToolbar makeConstraints:^(MASConstraintMaker *make) {
-      make.top.equalTo(self);
+      self.bottomToolbarBottomConstraint = make.bottom.equalTo(self).with.offset(44);
       make.left.equalTo(self);
       make.width.equalTo(self);
       make.height.equalTo(@44);
@@ -91,23 +90,40 @@
 }
 
 
+# pragma mark - Modal Views
+
+- (void) presentModalView:(UIView *)view {
+  UIView *superview = self.superview;
+  while (superview.superview) {
+    superview = superview.superview;
+  }
+  [superview addSubview:self.labelEditorView];
+  [view makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.equalTo(superview);
+  }];
+  superview.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
+}
+
+- (void) dismissModalView:(UIView *)view {
+  UIView *superview = view.superview;
+  [view removeFromSuperview];
+  superview.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
+}
+
+
 #pragma mark - Label Editor View
 
 - (void) presentLabelEditorView {
   self.labelEditorView = [[PPLLabelEditorView alloc] initWithEditorView:self configuration:PPLLabelEditorViewConfigurationCreate];
-  [self addSubview:self.labelEditorView];
-  [self.labelEditorView makeConstraints:^(MASConstraintMaker *make) {
-    make.edges.equalTo(self);
-  }];
+  [self presentModalView:self.labelEditorView];
+  [self.labelEditorView animateIn];
 }
 
 - (void) presentLabelEditorViewWithLabel:(PPLLabel *)label {
   self.labelEditorView = [[PPLLabelEditorView alloc] initWithEditorView:self configuration:PPLLabelEditorViewConfigurationEdit];
   self.labelEditorView.currentLabel = label;
-  [self addSubview:self.labelEditorView];
-  [self.labelEditorView makeConstraints:^(MASConstraintMaker *make) {
-    make.edges.equalTo(self);
-  }];
+  [self presentModalView:self.labelEditorView];
+  [self.labelEditorView animateIn];
 }
 
 - (void) dismissLabelEditorViewConfirmed:(BOOL)confirmed {
@@ -115,7 +131,7 @@
     [self.controller addOrUpdateLabel:self.labelEditorView.currentLabel];
   }
   
-  [self.labelEditorView removeFromSuperview];
+  [self dismissModalView:self.labelEditorView];
   self.labelEditorView = nil;
 }
 
@@ -128,6 +144,29 @@
 
 - (NSSet *)labelsForLabelContainerView:(PPLLabelContainerView *)labelContainerView {
   return self.controller.labels;
+}
+
+
+# pragma mark - LabelContainerViewDelegate
+
+- (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didSelectLabel:(PPLLabel *)label {
+  self.bottomToolbarBottomConstraint.offset(0);
+  [self.labelContainerView layoutIfNeeded];
+  [UIView animateWithDuration:0.2 animations:^{
+    [self layoutIfNeeded];
+  }];
+  [self.controller selectLabelTriggered:label];
+}
+
+- (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didDeselectLabel:(PPLLabel *)label {
+  self.bottomToolbarBottomConstraint.offset(44);
+  [UIView animateWithDuration:0.2 animations:^{
+    [self layoutIfNeeded];
+  }];
+}
+
+- (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didTriggerEditOnLabel:(PPLLabel *)label {
+  [self presentLabelEditorViewWithLabel:label];
 }
 
 
@@ -148,7 +187,6 @@
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
   if ([keyPath isEqualToString:@"image"]) {
-    NSLog(@"Yo the image changed to %@", change[NSKeyValueChangeNewKey]);
     self.imageView.image = change[NSKeyValueChangeNewKey];
   } else {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

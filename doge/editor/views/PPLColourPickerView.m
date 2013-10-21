@@ -8,9 +8,10 @@
 
 #import "PPLColourPickerView.h"
 
-#define BUTTON_DIAMETER 44.0
-#define UNSELECTED_BORDER 8.0
-#define SELECTED_BORDER 2.0
+#define BUTTON_DIAMETER 32
+#define PADDING 14
+#define UNSELECTED_BORDER 6
+#define SELECTED_BORDER 2
 
 @interface PPLColourPickerView()
 
@@ -23,32 +24,37 @@
 
 - (instancetype) init {
   if (self = [super init]) {
-    int i = 0;
-    for (UIColor *colour in self.colours) {
+    for (int i = 0; i < self.colours.count; i++) {
+      UIColor *colour = self.colours[i];
       UIButton *colourButton = [UIButton buttonWithType:UIButtonTypeCustom];
       colourButton.backgroundColor = colour;
       colourButton.layer.borderColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.843 alpha:1].CGColor;
       colourButton.layer.borderWidth = UNSELECTED_BORDER;
       colourButton.layer.cornerRadius = BUTTON_DIAMETER/2;
       [colourButton addTarget:self action:@selector(colourButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-      
-      if (i == 2) {
-        colourButton.layer.borderWidth = 2.0;
-        colourButton.selected = YES;
-      }
-      
       [self addSubview:colourButton];
       [colourButton makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@BUTTON_DIAMETER);
         make.height.equalTo(@BUTTON_DIAMETER);
-        make.left.equalTo(self).with.offset(i * BUTTON_DIAMETER * 2); // TODO this is wildly wrong
-        make.top.equalTo(self).with.offset(BUTTON_DIAMETER); // TODO should somehow use constraints?
+        
+        if (i % 3 == 0) { // left edge
+          make.left.equalTo(self);
+        } else if (i % 3 == 1) { // center
+          make.centerX.equalTo(self.mas_centerX);
+        } else if (i % 3 == 2) { // right edge
+          make.right.equalTo(self);
+        }
+        
+        int row = i/3;
+        CGFloat topOffset = (BUTTON_DIAMETER + PADDING) * row;
+        make.top.equalTo(self).with.offset(topOffset);
       }];
-      
       [self.colourButtons addObject:colourButton];
-      
-      i++;
     }
+    
+    UIButton *colourButton = self.colourButtons.sampleOne;
+    colourButton.layer.borderWidth = 2.0;
+    colourButton.selected = YES;
   }
   return self;
 }
@@ -63,6 +69,20 @@
     }
   }
   return DOGE_RED;
+}
+
+- (void) pickColour:(UIColor *)colour {
+  for (UIButton *colourButton in self.colourButtons) {
+    colourButton.selected = NO;
+    colourButton.layer.borderWidth = UNSELECTED_BORDER;
+  }
+  
+  for (UIButton *colourButton in self.colourButtons) {
+    if ([colourButton.backgroundColor isEqual:colour]) {
+      colourButton.selected = YES;
+      colourButton.layer.borderWidth = SELECTED_BORDER;
+    }
+  }
 }
 
 

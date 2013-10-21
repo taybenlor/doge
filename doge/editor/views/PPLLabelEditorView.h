@@ -24,4 +24,7 @@ typedef enum {
 
 @property (nonatomic) PPLLabel *currentLabel;
 
+- (void) animateIn;
+- (void) animateOut;
+
 @end

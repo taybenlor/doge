@@ -20,5 +20,6 @@
 @property id<PPLColourPickerViewDelegate> delegate;
 
 - (UIColor *) pickedColour;
+- (void) pickColour:(UIColor *)colour;
 
 @end

@@ -21,7 +21,6 @@
 		B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BF3C331806A03500D705A0 /* PPLLabelEditorView.m */; };
 		B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BF3C3B1809355B00D705A0 /* PPLEditorLabel.m */; };
 		B5BF4198180D6E5900D705A0 /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5BF4197180D6E5900D705A0 /* demo.jpg */; };
-		B5BF419A180D6E9800D705A0 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BF4199180D6E9800D705A0 /* Reveal.framework */; };
 		B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C217FC601700F052FE /* Foundation.framework */; };
 		B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C417FC601700F052FE /* CoreGraphics.framework */; };
 		B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C617FC601700F052FE /* UIKit.framework */; };
@@ -35,7 +34,10 @@
 		B5D5D4EC17FC601700F052FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5D5D4EA17FC601700F052FE /* InfoPlist.strings */; };
 		B5D5D4EE17FC601700F052FE /* dogeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D4ED17FC601700F052FE /* dogeTests.m */; };
 		B5D5D50217FD2DDF00F052FE /* PPLHamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */; };
-		B5FCB3FE18115F0B002E5B43 /* PPLInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB3FD18115F0B002E5B43 /* PPLInsetTextField.m */; };
+		B5FCB4021813C73E002E5B43 /* PPLInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB4011813C73E002E5B43 /* PPLInsetTextField.m */; };
+		B5FCB40D1813C7CC002E5B43 /* NSArray+Sampling.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB40C1813C7CC002E5B43 /* NSArray+Sampling.m */; };
+		B5FCB4101813CC9C002E5B43 /* PPLDashedRoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB40F1813CC9C002E5B43 /* PPLDashedRoundedRectView.m */; };
+		B5FCB4131813E84B002E5B43 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB4121813E84B002E5B43 /* UIAlertView+Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +78,6 @@
 		B5BF3C3A1809355B00D705A0 /* PPLEditorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorLabel.h; sourceTree = "<group>"; };
 		B5BF3C3B1809355B00D705A0 /* PPLEditorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorLabel.m; sourceTree = "<group>"; };
 		B5BF4197180D6E5900D705A0 /* demo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo.jpg; sourceTree = "<group>"; };
-		B5BF4199180D6E9800D705A0 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		B5D5D4BF17FC601700F052FE /* doge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D5D4C217FC601700F052FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5D5D4C417FC601700F052FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,8 +97,14 @@
 		B5D5D50017FD2DDF00F052FE /* PPLHamburgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLHamburgerViewController.h; sourceTree = "<group>"; };
 		B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLHamburgerViewController.m; sourceTree = "<group>"; };
 		B5D5D50317FD544900F052FE /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
-		B5FCB3FC18115F0B002E5B43 /* PPLInsetTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLInsetTextField.h; sourceTree = "<group>"; };
-		B5FCB3FD18115F0B002E5B43 /* PPLInsetTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLInsetTextField.m; sourceTree = "<group>"; };
+		B5FCB4001813C73E002E5B43 /* PPLInsetTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLInsetTextField.h; sourceTree = "<group>"; };
+		B5FCB4011813C73E002E5B43 /* PPLInsetTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLInsetTextField.m; sourceTree = "<group>"; };
+		B5FCB40B1813C7CC002E5B43 /* NSArray+Sampling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Sampling.h"; sourceTree = "<group>"; };
+		B5FCB40C1813C7CC002E5B43 /* NSArray+Sampling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Sampling.m"; sourceTree = "<group>"; };
+		B5FCB40E1813CC9C002E5B43 /* PPLDashedRoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLDashedRoundedRectView.h; sourceTree = "<group>"; };
+		B5FCB40F1813CC9C002E5B43 /* PPLDashedRoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLDashedRoundedRectView.m; sourceTree = "<group>"; };
+		B5FCB4111813E84B002E5B43 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		B5FCB4121813E84B002E5B43 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +114,6 @@
 			files = (
 				B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */,
 				B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */,
-				B5BF419A180D6E9800D705A0 /* Reveal.framework in Frameworks */,
 				B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */,
 				4E682F0B0F514091A76C3EDE /* libPods-doge.a in Frameworks */,
 			);
@@ -166,7 +172,6 @@
 		B5D5D4C117FC601700F052FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B5BF4199180D6E9800D705A0 /* Reveal.framework */,
 				B5D5D4C217FC601700F052FE /* Foundation.framework */,
 				B5D5D4C417FC601700F052FE /* CoreGraphics.framework */,
 				B5D5D4C617FC601700F052FE /* UIKit.framework */,
@@ -223,7 +228,8 @@
 		B5D5D4F717FC613D00F052FE /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				B5FCB3FB18115EFA002E5B43 /* views */,
+				B5FCB40A1813C7C1002E5B43 /* categories */,
+				B5FCB3FF1813C73E002E5B43 /* views */,
 				B59DD92E17FF05BA00CCDE08 /* controllers */,
 				B5D5D4FF17FC615D00F052FE /* models */,
 				B5D5D50317FD544900F052FE /* Shared.h */,
@@ -308,13 +314,26 @@
 			path = models;
 			sourceTree = "<group>";
 		};
-		B5FCB3FB18115EFA002E5B43 /* views */ = {
+		B5FCB3FF1813C73E002E5B43 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				B5FCB3FC18115F0B002E5B43 /* PPLInsetTextField.h */,
-				B5FCB3FD18115F0B002E5B43 /* PPLInsetTextField.m */,
+				B5FCB4001813C73E002E5B43 /* PPLInsetTextField.h */,
+				B5FCB4011813C73E002E5B43 /* PPLInsetTextField.m */,
+				B5FCB40E1813CC9C002E5B43 /* PPLDashedRoundedRectView.h */,
+				B5FCB40F1813CC9C002E5B43 /* PPLDashedRoundedRectView.m */,
 			);
-			name = views;
+			path = views;
+			sourceTree = "<group>";
+		};
+		B5FCB40A1813C7C1002E5B43 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				B5FCB40B1813C7CC002E5B43 /* NSArray+Sampling.h */,
+				B5FCB40C1813C7CC002E5B43 /* NSArray+Sampling.m */,
+				B5FCB4111813E84B002E5B43 /* UIAlertView+Blocks.h */,
+				B5FCB4121813E84B002E5B43 /* UIAlertView+Blocks.m */,
+			);
+			path = categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,19 +469,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5FCB40D1813C7CC002E5B43 /* NSArray+Sampling.m in Sources */,
 				B5D5D50217FD2DDF00F052FE /* PPLHamburgerViewController.m in Sources */,
 				B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */,
 				B59DD9341802381700CCDE08 /* PPLLabel.m in Sources */,
 				B5D5D4CF17FC601700F052FE /* main.m in Sources */,
 				B5217304180EA2D30088D821 /* PPLLabelContainerView.m in Sources */,
 				B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */,
-				B5FCB3FE18115F0B002E5B43 /* PPLInsetTextField.m in Sources */,
+				B5FCB4021813C73E002E5B43 /* PPLInsetTextField.m in Sources */,
 				B5D5D4D317FC601700F052FE /* PPLAppDelegate.m in Sources */,
 				B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */,
 				B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */,
 				B59DD93117FF05C400CCDE08 /* UINavigationController+DogeStyling.m in Sources */,
+				B5FCB4131813E84B002E5B43 /* UIAlertView+Blocks.m in Sources */,
 				B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */,
 				B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */,
+				B5FCB4101813CC9C002E5B43 /* PPLDashedRoundedRectView.m in Sources */,
 				B59DD92C17FF010200CCDE08 /* PPLEditorView.m in Sources */,
 				B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */,
 				B59DD92117FDA44800CCDE08 /* PPLBlankEditorViewController.m in Sources */,
@@ -524,6 +546,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -542,6 +565,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "0C00184D-1F15-427F-94BA-C086295143FF";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -563,7 +587,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -574,6 +599,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "A8DE6501-1368-46B9-B346-779582F10894";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -585,6 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ben/Dropbox/Projects/Doge/Development/doge,
@@ -595,6 +622,7 @@
 				INFOPLIST_FILE = "doge/doge-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0C00184D-1F15-427F-94BA-C086295143FF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -605,6 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ben/Dropbox/Projects/Doge/Development/doge,
@@ -615,6 +644,7 @@
 				INFOPLIST_FILE = "doge/doge-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A8DE6501-1368-46B9-B346-779582F10894";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

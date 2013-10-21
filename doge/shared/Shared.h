@@ -15,6 +15,8 @@
 
 #import "EnumeratorKit.h"
 
+#import "NSArray+Sampling.h"
+
 #define DOGE_RED [UIColor colorWithHue:1.000 saturation:0.599 brightness:0.792 alpha:1]
 #define DOGE_STEEL [UIColor colorWithHue:0.625 saturation:0.235 brightness:0.267 alpha:1]
 
@@ -23,5 +25,10 @@
 #define DOGE_CORNER_RADIUS 3.0
 
 #import <TargetConditionals.h>
+
+#define DISPLAY_IMAGE_WIDTH 300
+#define DISPLAY_IMAGE_HEIGHT 300
+#define OUTPUT_IMAGE_WIDTH 640
+#define OUTPUT_IMAGE_HEIGHT 640
 
 #endif

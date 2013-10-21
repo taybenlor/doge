@@ -21,10 +21,30 @@
 
 - (id) init {
   if (self = [super init]) {
-    self.editButton = [[UIBarButtonItem alloc] initWithTitle:@"edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonTapped:)];
-    self.increaseSizeButton = [[UIBarButtonItem alloc] initWithTitle:@"-" style:UIBarButtonItemStylePlain target:self action:@selector(decreaseSizeButtonTapped:)];
-    self.decreaseSizeButton = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(increaseSizeButtonTapped:)];
-    self.deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteButtonTapped:)];
+    self.editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit-button.png"]
+                                                       style:UIBarButtonItemStylePlain
+                                                      target:self
+                                                      action:@selector(editButtonTapped:)];
+    self.increaseSizeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bigger-button.png"]
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(increaseSizeButtonTapped:)];
+    self.decreaseSizeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"smaller-button.png"]
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(decreaseSizeButtonTapped:)];
+    self.deleteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"delete-button.png"]
+                                                         style:UIBarButtonItemStylePlain
+                                                        target:self
+                                                        action:@selector(deleteButtonTapped:)];
+    
+    self.editButton.width = 65;
+    self.increaseSizeButton.width = 65;
+    self.decreaseSizeButton.width = 65;
+    self.deleteButton.width = 65;
+    
+    self.barStyle = UIBarStyleDefault;
+    self.translucent = YES;
     
     self.items = @[self.editButton, self.decreaseSizeButton, self.increaseSizeButton, self.deleteButton];
   }
@@ -37,6 +57,7 @@
   }
   return self;
 }
+
 
 # pragma mark - Events
 
