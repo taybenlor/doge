@@ -20,7 +20,7 @@
 
 - (id) init {
   if (self = [super init]) {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = DOGE_STEEL;
     
     UIImage *normalChoosePhotoButton = [UIImage imageNamed:@"choose-photo-button"];
     UIImage *highlightedChoosePhotoButton = [UIImage imageNamed:@"choose-photo-button_highlighted"];

@@ -44,7 +44,7 @@
     self.deleteButton.width = 65;
     
     self.barStyle = UIBarStyleDefault;
-    self.translucent = YES;
+    self.translucent = NO;
     
     self.items = @[self.editButton, self.decreaseSizeButton, self.increaseSizeButton, self.deleteButton];
   }

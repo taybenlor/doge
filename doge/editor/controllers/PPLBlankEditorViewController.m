@@ -12,7 +12,7 @@
 #import "PPLEditorViewController.h"
 
 @interface PPLBlankEditorViewController ()
-
+@property UIImagePickerController *imagePickerController;
 @end
 
 @implementation PPLBlankEditorViewController
@@ -20,7 +20,13 @@
 - (id) init {
   if (self = [super init]) {
     self.view = [[PPLBlankEditorView alloc] initWithController:self];
-    self.navigationItem.title = @"instadoge";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app-title"]];
+
+    self.imagePickerController = [[UIImagePickerController alloc] init];
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePickerController.mediaTypes = @[(NSString *)kUTTypeImage];
+    self.imagePickerController.delegate = self;
+    self.imagePickerController.allowsEditing = NO;
   }
   return self;
 }
@@ -33,22 +39,23 @@
 #pragma mark - Private Methods
 
 - (void) openImagePicker {
+  [TestFlight passCheckpoint:@"Open Image Picker"];
+  
 #if TARGET_IPHONE_SIMULATOR
   [self pickedImage:[UIImage imageNamed:@"demo.jpg"]];
   return;
 #endif
   
-  UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-  imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  imagePickerController.mediaTypes = @[(NSString *)kUTTypeImage];
-  imagePickerController.delegate = self;
-  imagePickerController.allowsEditing = NO;
+  [UINavigationBar appearance].tintColor = DOGE_RED;
   
-  [self.navigationController presentViewController:imagePickerController animated:YES completion:nil];
+  [self.navigationController presentViewController:self.imagePickerController animated:YES completion:nil];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 - (void) pickedImage:(UIImage *)image {
+  [TestFlight passCheckpoint:@"Picked An Image"];
+  
+  [UINavigationBar appearance].tintColor = [UIColor whiteColor];
   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
   

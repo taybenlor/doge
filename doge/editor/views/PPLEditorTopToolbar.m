@@ -28,7 +28,7 @@
     self.shareDogeButton.width = 134;
     
     self.barStyle = UIBarStyleDefault;
-    self.translucent = YES;
+    self.translucent = NO;
     
     self.items = @[self.addLabelButton, self.shareDogeButton];
   }

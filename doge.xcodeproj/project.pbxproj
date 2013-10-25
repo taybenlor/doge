@@ -12,6 +12,10 @@
 		B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217308180EDD3F0088D821 /* PPLColourPickerView.m */; };
 		B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */; };
 		B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382D180437940000B989 /* PPLEditorBottomToolbar.m */; };
+		B59301ED18153A9000A6AF94 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59301E718153A9000A6AF94 /* libTestFlight.a */; };
+		B59301EE18153A9000A6AF94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E818153A9000A6AF94 /* README.md */; };
+		B59301EF18153A9000A6AF94 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E918153A9000A6AF94 /* release_notes.md */; };
+		B59301F118153ABE00A6AF94 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B59301F018153ABE00A6AF94 /* libz.dylib */; };
 		B59DD92117FDA44800CCDE08 /* PPLBlankEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92017FDA44800CCDE08 /* PPLBlankEditorViewController.m */; };
 		B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92317FDA46400CCDE08 /* PPLBlankEditorView.m */; };
 		B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92817FF00EF00CCDE08 /* PPLEditorViewController.m */; };
@@ -61,6 +65,13 @@
 		B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorTopToolbar.m; sourceTree = "<group>"; };
 		B526382C180437940000B989 /* PPLEditorBottomToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorBottomToolbar.h; sourceTree = "<group>"; };
 		B526382D180437940000B989 /* PPLEditorBottomToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorBottomToolbar.m; sourceTree = "<group>"; };
+		B59301E718153A9000A6AF94 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		B59301E818153A9000A6AF94 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		B59301E918153A9000A6AF94 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		B59301EA18153A9000A6AF94 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		B59301EB18153A9000A6AF94 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		B59301EC18153A9000A6AF94 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		B59301F018153ABE00A6AF94 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B59DD91F17FDA44800CCDE08 /* PPLBlankEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLBlankEditorViewController.h; sourceTree = "<group>"; };
 		B59DD92017FDA44800CCDE08 /* PPLBlankEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLBlankEditorViewController.m; sourceTree = "<group>"; };
 		B59DD92217FDA46400CCDE08 /* PPLBlankEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLBlankEditorView.h; sourceTree = "<group>"; };
@@ -112,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59301F118153ABE00A6AF94 /* libz.dylib in Frameworks */,
+				B59301ED18153A9000A6AF94 /* libTestFlight.a in Frameworks */,
 				B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */,
 				B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */,
 				B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */,
@@ -132,6 +145,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B59301E618153A9000A6AF94 /* TestFlightSDK2.0.2 */ = {
+			isa = PBXGroup;
+			children = (
+				B59301E718153A9000A6AF94 /* libTestFlight.a */,
+				B59301E818153A9000A6AF94 /* README.md */,
+				B59301E918153A9000A6AF94 /* release_notes.md */,
+				B59301EA18153A9000A6AF94 /* TestFlight+AsyncLogging.h */,
+				B59301EB18153A9000A6AF94 /* TestFlight+ManualSessions.h */,
+				B59301EC18153A9000A6AF94 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.0.2;
+			sourceTree = "<group>";
+		};
 		B59DD92E17FF05BA00CCDE08 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +198,8 @@
 		B5D5D4C117FC601700F052FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B59301F018153ABE00A6AF94 /* libz.dylib */,
+				B59301E618153A9000A6AF94 /* TestFlightSDK2.0.2 */,
 				B5D5D4C217FC601700F052FE /* Foundation.framework */,
 				B5D5D4C417FC601700F052FE /* CoreGraphics.framework */,
 				B5D5D4C617FC601700F052FE /* UIKit.framework */,
@@ -417,7 +445,9 @@
 			files = (
 				B5D5D4DB17FC601700F052FE /* Images.xcassets in Resources */,
 				B5BF4198180D6E5900D705A0 /* demo.jpg in Resources */,
+				B59301EE18153A9000A6AF94 /* README.md in Resources */,
 				B5D5D4CD17FC601700F052FE /* InfoPlist.strings in Resources */,
+				B59301EF18153A9000A6AF94 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,8 +651,13 @@
 				GCC_PREFIX_HEADER = "doge/doge-Prefix.pch";
 				INFOPLIST_FILE = "doge/doge-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ben/Dropbox/Projects/Doge/Development/doge/TestFlightSDK2.0.2,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0C00184D-1F15-427F-94BA-C086295143FF";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -643,8 +678,13 @@
 				GCC_PREFIX_HEADER = "doge/doge-Prefix.pch";
 				INFOPLIST_FILE = "doge/doge-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ben/Dropbox/Projects/Doge/Development/doge/TestFlightSDK2.0.2,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A8DE6501-1368-46B9-B346-779582F10894";
+				PROVISIONING_PROFILE = "608C951B-49EB-43E6-A192-EB1D137BDA4C";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

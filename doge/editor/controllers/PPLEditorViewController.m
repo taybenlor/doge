@@ -11,6 +11,7 @@
 #import "PPLEditorView.h"
 #import "PPLEditorLabel.h"
 #import "UIAlertView+Blocks.h"
+#import "PPLBlankEditorViewController.h"
 
 @interface PPLEditorViewController ()
 @property (nonatomic) NSMutableSet *labels;
@@ -25,7 +26,7 @@
 - (id) init {
   if (self = [super init]) {
     self.view = [[PPLEditorView alloc] initWithController:self];
-    self.navigationItem.title = @"doggr";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app-title"]];
     UIBarButtonItem *newDogeButton = [[UIBarButtonItem alloc] initWithTitle:@"new"
                                                         style:UIBarButtonItemStylePlain
                                                        target:self
@@ -38,7 +39,6 @@
 
 - (id) initWithImage:(UIImage *)image {
   if (self = [self init]) {
-    NSLog(@"Yo setting the image %@", image);
     self.image = image;
   }
   return self;
@@ -53,6 +53,7 @@
 #pragma mark - Private Methods
 
 - (void) share {
+  [TestFlight passCheckpoint:@"Shared an Image"];
   UIImage *renderedImage = [self renderImage];
   
   UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[renderedImage] applicationActivities:nil];
@@ -111,7 +112,19 @@
 #pragma mark - Actions
 
 - (void) newDogeTapped {
-  
+  [TestFlight passCheckpoint:@"Began Starting Again"];
+  UIAlertView *alertView = [[UIAlertView alloc] init];
+  alertView.title = NSLocalizedString(@"Starting a new dogestagram will trash this stunning creation", @"New creation alert view text");
+  [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"trash it", @"trash it and start again")];
+  [alertView setTintColor:DOGE_RED];
+  [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+    if (buttonIndex) {
+      [TestFlight passCheckpoint:@"Started Again"];
+      PPLBlankEditorViewController *blankEditorViewController = [[PPLBlankEditorViewController alloc] init];
+      [self.navigationController setViewControllers:@[blankEditorViewController] animated:YES];
+    }
+  }];
 }
 
 
@@ -134,6 +147,7 @@
 #pragma mark - Triggerable Events
 
 - (void) addLabelTriggered {
+  [TestFlight passCheckpoint:@"Began Adding a Label"];
   [self.view presentLabelEditorView];
 }
 
@@ -150,18 +164,22 @@
 }
 
 - (void) editLabelTriggered {
+  [TestFlight passCheckpoint:@"Edited a Label"];
   [self.view presentLabelEditorViewWithLabel:self.selectedLabel];
 }
 
 - (void) increaseLabelSizeTriggered {
+  [TestFlight passCheckpoint:@"Increased Label Size"];
   [self.selectedLabel increaseFontSize];
 }
 
 - (void) decreaseLabelSizeTriggered {
+  [TestFlight passCheckpoint:@"Decreased Label Size"];
   [self.selectedLabel decreaseFontSize];
 }
 
 - (void) deleteLabelTriggered {
+  [TestFlight passCheckpoint:@"Started Trashing a Label"];
   UIAlertView *alertView = [[UIAlertView alloc] init];
   alertView.title = NSLocalizedString(@"Are you sure you want to delete this?", @"Delete alert view text");
   [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
@@ -169,9 +187,9 @@
   [alertView setTintColor:DOGE_RED];
   [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
     if (buttonIndex) {
+      [TestFlight passCheckpoint:@"Trashed a Label"];
       [self.labels removeObject:self.selectedLabel];
       [self.view updateLabels];
-      NSLog(@"Delete that label");
     }
   }];
 }

@@ -22,6 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [TestFlight takeOff:@"86ed787e-5f62-49a0-a6c9-2fc05c76a695"];
+  
   srand48(time(0));
   PPLBlankEditorViewController *mainViewController = [[PPLBlankEditorViewController alloc] init];
   UIViewController *menuViewController = [[UIViewController alloc] init];
@@ -42,7 +44,8 @@
 
 - (void) styleApplication {
   [UIBarButtonItem appearance].tintColor = DOGE_RED;
-  //[UIButton appearance].tintColor = DOGE_RED;
+  [UIButton appearance].tintColor = DOGE_RED;
+  [UINavigationBar appearance].tintColor = [UIColor whiteColor];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

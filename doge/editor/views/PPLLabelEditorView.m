@@ -50,10 +50,22 @@
       make.height.equalTo(@MODAL_HEIGHT);
     }];
     
+    NSArray *dogeStrings = @[@"wow",
+                             @"wow",
+                             @"wow",
+                             @"wow",
+                             @"wow",
+                             @"such doge",
+                             @"many label",
+                             @"very interest",
+                             @"doge approve",
+                             @"much impress",
+                             @"so picture"];
+    
     self.textField = [[PPLInsetTextField alloc] init];
     self.textField.font = [UIFont fontWithName:DOGE_FONT_NAME size:18.0];
     self.textField.textColor = DOGE_STEEL;
-    self.textField.text = @[@"wow", @"such doge", @"many label", @"very interest", @"doge approve", @"much impress"].sampleOne;
+    self.textField.text = dogeStrings.sampleOne;
     self.textField.backgroundColor = [UIColor whiteColor];
     self.textField.layer.cornerRadius = DOGE_CORNER_RADIUS;
     self.textField.edgeInsets = UIEdgeInsetsMake(0, EDGE_PADDING, 0, EDGE_PADDING);
@@ -197,6 +209,8 @@
 # pragma mark - UITextFieldDelegate
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
+  [TestFlight passCheckpoint:@"Changed Label Text"];
+  
   [textField resignFirstResponder];
   return NO;
 }
@@ -205,6 +219,8 @@
 # pragma mark - Triggers
 
 - (void) cancelButtonTapped:(id)sender {
+  [TestFlight passCheckpoint:@"Cancelled Editing Label"];
+  
   [self animateOut];
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(ANIMATION_DURATION * NSEC_PER_SEC));
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -213,6 +229,8 @@
 }
 
 - (void) confirmButtonTapped:(id)sender {
+  [TestFlight passCheckpoint:@"Edited a Label"];
+  
   self.currentLabel.text = self.textField.text;
   self.currentLabel.rotation = 0.0;
   self.currentLabel.color = self.colourPickerView.pickedColour;
