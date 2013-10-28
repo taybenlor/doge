@@ -20,6 +20,10 @@
 
 @property PPLDashedRoundedRectView *borderView;
 @property UITapGestureRecognizer *doubleTapRecognizer;
+@property UITapGestureRecognizer *singleTapRecognizer;
+@property UIPanGestureRecognizer *panGestureRecognizer;
+
+@property CGPoint panInitialTranslation;
 
 @end
 
@@ -28,9 +32,20 @@
 - (id) init {
   if (self = [super init]) {
     self.clipsToBounds = NO;
+    self.userInteractionEnabled = YES;
+    
     self.doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapped)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
     [self addGestureRecognizer:self.doubleTapRecognizer];
+    
+    self.singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapped)];
+    self.singleTapRecognizer.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:self.singleTapRecognizer];
+    
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned)];
+    self.panGestureRecognizer.minimumNumberOfTouches = 1;
+    self.panGestureRecognizer.maximumNumberOfTouches = 1;
+    [self addGestureRecognizer:self.panGestureRecognizer];
   }
   return self;
 }
@@ -78,8 +93,35 @@
 #pragma mark - Private Methods
 
 - (void) doubleTapped {
+  self.editing = YES;
+  if ([self.delegate respondsToSelector:@selector(editorLabelWasSelected:)]) {
+    [self.delegate editorLabelWasSelected:self];
+  }
   if ([self.delegate respondsToSelector:@selector(editorLabelDidTriggerEdit:)]) {
     [self.delegate editorLabelDidTriggerEdit:self];
+  }
+}
+
+- (void) singleTapped {
+  self.editing = YES;
+  if ([self.delegate respondsToSelector:@selector(editorLabelWasSelected:)]) {
+    [self.delegate editorLabelWasSelected:self];
+  }
+}
+
+- (void) panned {
+  CGPoint translation = [self.panGestureRecognizer translationInView:self.superview];
+  if (self.panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+    self.panInitialTranslation = self.frame.origin;
+    self.editing = YES;
+    if ([self.delegate respondsToSelector:@selector(editorLabelWasSelected:)]) {
+      [self.delegate editorLabelWasSelected:self];
+    }
+  } else if (self.panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+    CGFloat newX = (self.panInitialTranslation.x + translation.x)/self.superview.frame.size.width;
+    CGFloat newY = (self.panInitialTranslation.y + translation.y)/self.superview.frame.size.height;
+    self.label.position = CGPointMake(newX, newY);
+    [self.superview layoutIfNeeded];
   }
 }
 
@@ -120,7 +162,7 @@
 - (void) setEditing:(BOOL)editing {
   _editing = editing;
   
-  if (editing) {
+  if (editing && !self.borderView) {
     self.borderView = [[PPLDashedRoundedRectView alloc] init];
     [self addSubview:self.borderView];
     [self.borderView makeConstraints:^(MASConstraintMaker *make) {

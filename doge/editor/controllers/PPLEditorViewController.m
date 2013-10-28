@@ -27,12 +27,20 @@
   if (self = [super init]) {
     self.view = [[PPLEditorView alloc] initWithController:self];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app-title"]];
+    
     UIBarButtonItem *newDogeButton = [[UIBarButtonItem alloc] initWithTitle:@"new"
                                                         style:UIBarButtonItemStylePlain
                                                        target:self
                                                        action:@selector(newDogeTapped)];
     newDogeButton.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = newDogeButton;
+    
+    UIBarButtonItem *shareDogeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share-button"]
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(shareDogeTriggered)];
+    shareDogeButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = shareDogeButton;
   }
   return self;
 }

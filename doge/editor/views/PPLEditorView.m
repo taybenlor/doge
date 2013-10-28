@@ -11,6 +11,9 @@
 #import "PPLEditorBottomToolbar.h"
 #import "PPLLabelEditorView.h"
 #import "PPLLabelContainerView.h"
+#import "PPLAlertView.h"
+
+#define ANIMATION_DURATION 0.2
 
 @interface PPLEditorView ()
 
@@ -25,6 +28,8 @@
 @property (nonatomic) NSMutableSet *editorLabels;
 
 @property id<MASConstraint> bottomToolbarBottomConstraint;
+
+@property PPLAlertView *alertView;
 
 @end
 
@@ -90,6 +95,33 @@
 }
 
 
+# pragma mark - Toolbars
+
+- (void) showEditToolbarAnimated:(BOOL)animated {
+  self.bottomToolbarBottomConstraint.offset(0);
+  [self.labelContainerView layoutIfNeeded];
+  
+  if (animated) {
+    [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+      [self layoutIfNeeded];
+    }];
+  } else {
+    [self layoutIfNeeded];
+  }
+}
+
+- (void) hideEditToolbarAnimated:(BOOL)animated {
+  self.bottomToolbarBottomConstraint.offset(44);
+  if (animated) {
+    [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+      [self layoutIfNeeded];
+    }];
+  } else {
+    [self layoutIfNeeded];
+  }
+}
+
+
 # pragma mark - Modal Views
 
 - (void) presentModalView:(UIView *)view {
@@ -115,15 +147,19 @@
 
 - (void) presentLabelEditorView {
   self.labelEditorView = [[PPLLabelEditorView alloc] initWithEditorView:self configuration:PPLLabelEditorViewConfigurationCreate];
-  [self presentModalView:self.labelEditorView];
-  [self.labelEditorView animateIn];
+  
+  self.alertView = [[PPLAlertView alloc] init];
+  self.alertView.containedView = self.labelEditorView;
+  [self.alertView show];
 }
 
 - (void) presentLabelEditorViewWithLabel:(PPLLabel *)label {
   self.labelEditorView = [[PPLLabelEditorView alloc] initWithEditorView:self configuration:PPLLabelEditorViewConfigurationEdit];
   self.labelEditorView.currentLabel = label;
-  [self presentModalView:self.labelEditorView];
-  [self.labelEditorView animateIn];
+  
+  self.alertView = [[PPLAlertView alloc] init];
+  self.alertView.containedView = self.labelEditorView;
+  [self.alertView show];
 }
 
 - (void) dismissLabelEditorViewConfirmed:(BOOL)confirmed {
@@ -131,8 +167,8 @@
     [self.controller addOrUpdateLabel:self.labelEditorView.currentLabel];
   }
   
-  [self dismissModalView:self.labelEditorView];
   self.labelEditorView = nil;
+  [self.alertView dismiss];
 }
 
 - (void) updateLabels {
@@ -150,23 +186,20 @@
 # pragma mark - LabelContainerViewDelegate
 
 - (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didSelectLabel:(PPLLabel *)label {
-  self.bottomToolbarBottomConstraint.offset(0);
-  [self.labelContainerView layoutIfNeeded];
-  [UIView animateWithDuration:0.2 animations:^{
-    [self layoutIfNeeded];
-  }];
+  [self showEditToolbarAnimated:YES];
   [self.controller selectLabelTriggered:label];
 }
 
 - (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didDeselectLabel:(PPLLabel *)label {
-  self.bottomToolbarBottomConstraint.offset(44);
-  [UIView animateWithDuration:0.2 animations:^{
-    [self layoutIfNeeded];
-  }];
+  [self hideEditToolbarAnimated:YES];
 }
 
 - (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didTriggerEditOnLabel:(PPLLabel *)label {
   [self presentLabelEditorViewWithLabel:label];
+}
+
+- (void) labelContainerViewDidTriggerNewLabel:(PPLLabelContainerView *)labelContainerView {
+  [self presentLabelEditorView];
 }
 
 

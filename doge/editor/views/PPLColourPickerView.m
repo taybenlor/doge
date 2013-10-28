@@ -9,7 +9,7 @@
 #import "PPLColourPickerView.h"
 
 #define BUTTON_DIAMETER 32
-#define PADDING 14
+#define PADDING 22
 #define UNSELECTED_BORDER 6
 #define SELECTED_BORDER 2
 

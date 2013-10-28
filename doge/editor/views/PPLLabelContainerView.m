@@ -12,8 +12,9 @@
 
 @property (nonatomic)  NSMutableArray *editorLabels;
 
-@property PPLEditorLabel *draggingLabel;
-@property CGPoint lastTouchLocation;
+@property PPLEditorLabel *selectedLabel;
+@property UITapGestureRecognizer *doubleTapRecognizer;
+@property UITapGestureRecognizer *singleTapRecognizer;
 
 @end
 
@@ -23,6 +24,13 @@
   if (self = [super init]) {
     self.clipsToBounds = YES;
     self.userInteractionEnabled = YES;
+    self.doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapped)];
+    self.doubleTapRecognizer.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:self.doubleTapRecognizer];
+    
+    self.singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapped)];
+    self.singleTapRecognizer.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:self.singleTapRecognizer];
   }
   return self;
 }
@@ -31,9 +39,17 @@
 #pragma mark - Public Methods
 
 - (void) reloadData {
+  PPLLabel *label = self.selectedLabel.label;
+  self.selectedLabel = nil;
+  if (label) {
+    [self.delegate labelContainerView:self didDeselectLabel:label];
+  }
+  
   for (PPLEditorLabel *label in self.editorLabels) {
     [label removeFromSuperview];
   }
+  
+  NSUInteger count = self.editorLabels.count;
   
   self.editorLabels = [NSMutableArray array];
   for (PPLLabel *label in [self.dataSource labelsForLabelContainerView:self]) {
@@ -43,6 +59,10 @@
     [editorLabel updateAttributes];
     
     [self.editorLabels addObject:editorLabel];
+  }
+  
+  if (self.editorLabels.count > count) {
+    [self selectEditorLabel:self.editorLabels.lastObject];
   }
 }
 
@@ -55,12 +75,20 @@
   }
 }
 
+- (void) editorLabelWasSelected:(PPLEditorLabel *)selectedEditorLabel {
+  [self selectEditorLabel:selectedEditorLabel];
+}
+
 
 #pragma mark - Private Methods
 
 - (void) selectEditorLabel:(PPLEditorLabel *)editorLabel {
+  self.editorLabels.each(^(PPLEditorLabel *editorLabel){
+    editorLabel.editing = NO;
+  });
+  
   editorLabel.editing = YES;
-  self.draggingLabel = editorLabel;
+  self.selectedLabel = editorLabel;
   
   if ([self.delegate respondsToSelector:@selector(labelContainerView:didSelectLabel:)]) {
     [self.delegate labelContainerView:self didSelectLabel:editorLabel.label];
@@ -68,60 +96,25 @@
 }
 
 - (void) deselectCurrentEditorLabel {
-  PPLEditorLabel *currentLabel = self.draggingLabel;
-  self.draggingLabel = nil;
+  PPLEditorLabel *currentLabel = self.selectedLabel;
+  self.selectedLabel.editing = NO;
+  self.selectedLabel = nil;
   if ([self.delegate respondsToSelector:@selector(labelContainerView:didDeselectLabel:)]) {
     [self.delegate labelContainerView:self didDeselectLabel:currentLabel.label];
   }
 }
 
 
-#pragma mark - Touch Events
+#pragma mark - Actions
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  if (touches.count > 1) return;
-  
-  UITouch *touch = [touches anyObject];
-  CGPoint location = [touch locationInView:self];
-  
-  self.editorLabels.each(^(PPLEditorLabel *editorLabel){
-    editorLabel.editing = NO;
-  });
-  
-  for (PPLEditorLabel *editorLabel in self.editorLabels) {
-    if (CGRectContainsPoint(editorLabel.frame, location)) {
-      self.lastTouchLocation = location;
-      [self selectEditorLabel:editorLabel];
-      return;
-    }
+- (void) doubleTapped {
+  if ([self.delegate respondsToSelector:@selector(labelContainerViewDidTriggerNewLabel:)]) {
+    [self.delegate labelContainerViewDidTriggerNewLabel:self];
   }
-  
+}
+
+- (void) singleTapped {
   [self deselectCurrentEditorLabel];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-  if (!self.draggingLabel) return;
-  
-  UITouch *touch = [touches anyObject];
-  CGPoint location = [touch locationInView:self];
-  CGFloat diffX = (location.x - self.lastTouchLocation.x)/self.frame.size.width;
-  CGFloat diffY = (location.y - self.lastTouchLocation.y)/self.frame.size.height;
-  CGPoint labelPos = self.draggingLabel.label.position;
-  CGFloat newX = MIN(MAX(labelPos.x + diffX, -0.15), 0.9);
-  CGFloat newY = MIN(MAX(labelPos.y + diffY, -0.15), 0.9);
-  CGPoint newPos = CGPointMake(newX, newY);
-  self.draggingLabel.label.position = newPos;
-  [self layoutIfNeeded];
-  
-  self.lastTouchLocation = location;
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-  
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-  
 }
 
 

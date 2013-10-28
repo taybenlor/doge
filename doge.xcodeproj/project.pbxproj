@@ -20,8 +20,9 @@
 		B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92317FDA46400CCDE08 /* PPLBlankEditorView.m */; };
 		B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92817FF00EF00CCDE08 /* PPLEditorViewController.m */; };
 		B59DD92C17FF010200CCDE08 /* PPLEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD92B17FF010200CCDE08 /* PPLEditorView.m */; };
-		B59DD93117FF05C400CCDE08 /* UINavigationController+DogeStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD93017FF05C400CCDE08 /* UINavigationController+DogeStyling.m */; };
 		B59DD9341802381700CCDE08 /* PPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59DD9331802381700CCDE08 /* PPLLabel.m */; };
+		B5AF4207181E084D0091A204 /* UINavigationController+DogeStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AF4206181E084D0091A204 /* UINavigationController+DogeStyling.m */; };
+		B5AF420D181E08880091A204 /* PPLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AF420C181E08880091A204 /* PPLAlertView.m */; };
 		B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BF3C331806A03500D705A0 /* PPLLabelEditorView.m */; };
 		B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BF3C3B1809355B00D705A0 /* PPLEditorLabel.m */; };
 		B5BF4198180D6E5900D705A0 /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5BF4197180D6E5900D705A0 /* demo.jpg */; };
@@ -80,10 +81,12 @@
 		B59DD92817FF00EF00CCDE08 /* PPLEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorViewController.m; sourceTree = "<group>"; };
 		B59DD92A17FF010200CCDE08 /* PPLEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorView.h; sourceTree = "<group>"; };
 		B59DD92B17FF010200CCDE08 /* PPLEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorView.m; sourceTree = "<group>"; };
-		B59DD92F17FF05C400CCDE08 /* UINavigationController+DogeStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+DogeStyling.h"; sourceTree = "<group>"; };
-		B59DD93017FF05C400CCDE08 /* UINavigationController+DogeStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+DogeStyling.m"; sourceTree = "<group>"; };
 		B59DD9321802381700CCDE08 /* PPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLLabel.h; sourceTree = "<group>"; };
 		B59DD9331802381700CCDE08 /* PPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLLabel.m; sourceTree = "<group>"; };
+		B5AF4205181E084D0091A204 /* UINavigationController+DogeStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+DogeStyling.h"; sourceTree = "<group>"; };
+		B5AF4206181E084D0091A204 /* UINavigationController+DogeStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+DogeStyling.m"; sourceTree = "<group>"; };
+		B5AF420B181E08880091A204 /* PPLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAlertView.h; sourceTree = "<group>"; };
+		B5AF420C181E08880091A204 /* PPLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAlertView.m; sourceTree = "<group>"; };
 		B5BF3C321806A03500D705A0 /* PPLLabelEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLLabelEditorView.h; sourceTree = "<group>"; };
 		B5BF3C331806A03500D705A0 /* PPLLabelEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLLabelEditorView.m; sourceTree = "<group>"; };
 		B5BF3C3A1809355B00D705A0 /* PPLEditorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorLabel.h; sourceTree = "<group>"; };
@@ -161,8 +164,6 @@
 		B59DD92E17FF05BA00CCDE08 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B59DD92F17FF05C400CCDE08 /* UINavigationController+DogeStyling.h */,
-				B59DD93017FF05C400CCDE08 /* UINavigationController+DogeStyling.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -349,6 +350,8 @@
 				B5FCB4011813C73E002E5B43 /* PPLInsetTextField.m */,
 				B5FCB40E1813CC9C002E5B43 /* PPLDashedRoundedRectView.h */,
 				B5FCB40F1813CC9C002E5B43 /* PPLDashedRoundedRectView.m */,
+				B5AF420B181E08880091A204 /* PPLAlertView.h */,
+				B5AF420C181E08880091A204 /* PPLAlertView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -356,6 +359,8 @@
 		B5FCB40A1813C7C1002E5B43 /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				B5AF4205181E084D0091A204 /* UINavigationController+DogeStyling.h */,
+				B5AF4206181E084D0091A204 /* UINavigationController+DogeStyling.m */,
 				B5FCB40B1813C7CC002E5B43 /* NSArray+Sampling.h */,
 				B5FCB40C1813C7CC002E5B43 /* NSArray+Sampling.m */,
 				B5FCB4111813E84B002E5B43 /* UIAlertView+Blocks.h */,
@@ -506,11 +511,12 @@
 				B5D5D4CF17FC601700F052FE /* main.m in Sources */,
 				B5217304180EA2D30088D821 /* PPLLabelContainerView.m in Sources */,
 				B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */,
+				B5AF420D181E08880091A204 /* PPLAlertView.m in Sources */,
 				B5FCB4021813C73E002E5B43 /* PPLInsetTextField.m in Sources */,
+				B5AF4207181E084D0091A204 /* UINavigationController+DogeStyling.m in Sources */,
 				B5D5D4D317FC601700F052FE /* PPLAppDelegate.m in Sources */,
 				B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */,
 				B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */,
-				B59DD93117FF05C400CCDE08 /* UINavigationController+DogeStyling.m in Sources */,
 				B5FCB4131813E84B002E5B43 /* UIAlertView+Blocks.m in Sources */,
 				B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */,
 				B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */,

@@ -13,6 +13,7 @@
 @protocol PPLEditorLabelDelegate <NSObject>
 
 - (void) editorLabelDidTriggerEdit:(PPLEditorLabel *)editorLabel;
+- (void) editorLabelWasSelected:(PPLEditorLabel *)editorLabel;
 
 @end
 

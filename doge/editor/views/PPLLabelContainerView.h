@@ -19,9 +19,12 @@
 
 @protocol PPLLabelContainerViewDelegate <NSObject>
 
+@optional
+
 - (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didSelectLabel:(PPLLabel *)label;
 - (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didDeselectLabel:(PPLLabel *)label;
 - (void) labelContainerView:(PPLLabelContainerView *)labelContainerView didTriggerEditOnLabel:(PPLLabel *)label;
+- (void) labelContainerViewDidTriggerNewLabel:(PPLLabelContainerView *)labelContainerView;
 
 @end
 
