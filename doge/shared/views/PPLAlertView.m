@@ -2,142 +2,278 @@
 //  PPLAlertView.m
 //  doge
 //
-//  Created by Ben Taylor on 28/10/13.
+//  Created by Ben Taylor on 29/10/13.
 //  Copyright (c) 2013 Pepper Labs. All rights reserved.
 //
 
 #import "PPLAlertView.h"
 
-#define ANIMATION_DURATION 0.2
-#define OVERLAY_COLOUR ([UIColor colorWithWhite:0.0 alpha:0.4])
+#define PADDING 22
+#define WIDTH 270
+#define BUTTON_HEIGHT 44
 
 @interface PPLAlertView ()
-@property UIView *overlayView;
-@property UIView *containerView;
-@property UIWindow *window;
-@property UIWindow *previousWindow;
+
+@property (nonatomic) NSMutableArray *internalButtonTitles;
+@property NSArray *buttons;
+
+@property UILabel *titleLabel;
+@property UILabel *messageLabel;
+
 @end
 
 @implementation PPLAlertView
 
 - (instancetype) init {
   if (self = [super init]) {
-    self.overlayView = self;
-    self.backgroundColor = OVERLAY_COLOUR;
-    self.containerView = [[UIView alloc] init];
-    self.containerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.85];
-    self.containerView.layer.cornerRadius = DOGE_CORNER_RADIUS;
-    [self addSubview:self.containerView];
-    
-    /* Try this out again when you have some time
-     UIToolbar *containerView = [[UIToolbar alloc] init];
-     containerView.translucent = YES;
-     containerView.layer.cornerRadius = DOGE_CORNER_RADIUS;
-     [self addSubview:containerView];
-     self.containerView = containerView;
-     */
+    // Do things?
+  }
+  return self;
+}
+
+- (instancetype) initWithTitle:(NSString *)title message:(NSString *)message delegate:(id<PPLAlertViewDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... {
+  NSMutableArray *buttonTitles = [NSMutableArray arrayWithArray:@[cancelButtonTitle]];
+  va_list args;
+  va_start(args, otherButtonTitles);
+  for (NSString *buttonTitle = otherButtonTitles; buttonTitle != nil; buttonTitle = va_arg(args, NSString*)) {
+    [buttonTitles addObject:buttonTitle];
+  }
+  va_end(args);
+  
+  return [self initWithTitle:title message:message delegate:delegate buttonTitles:buttonTitles];
+}
+
+- (instancetype) initWithTitle:(NSString *)title message:(NSString *)message delegate:(id<PPLAlertViewDelegate>)delegate buttonTitles:(NSArray *)buttonTitles {
+  if (self = [self init]) {
+    self.title = title;
+    self.message = message;
+    self.delegate = delegate;
+    self.buttonTitles = buttonTitles;
   }
   return self;
 }
 
 
-# pragma mark - Private Display Behaviour
+# pragma mark - Actions
 
-- (void) preshow {
-  self.previousWindow = [UIApplication sharedApplication].keyWindow;
-  self.window = [[UIWindow alloc] initWithFrame:self.previousWindow.frame];
-  self.window.windowLevel = UIWindowLevelAlert;
-  [self.window addSubview:self];
+- (void) buttonTapped:(UIButton *)button {
+  NSUInteger index = [self.buttons indexOfObject:button];
+  [self dismissWithClickedButtonIndex:index animated:YES];
+}
+
+
+# pragma mark - Construct Views
+
+- (void) constructViews {
+  self.containedView = [[UIView alloc] init];
   
-  [self makeConstraints:^(MASConstraintMaker *make) {
-    make.edges.equalTo(self.superview);
+  [self.containedView makeConstraints:^(MASConstraintMaker *make) {
+    make.width.equalTo(@WIDTH);
   }];
   
-  [self.containerView makeConstraints:^(MASConstraintMaker *make) {
-    make.center.equalTo(self);
-  }];
+  if (self.title) {
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.text = self.title;
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0];
+    self.titleLabel.numberOfLines = 0;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.containedView addSubview:self.titleLabel];
+    
+    [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
+      make.top.equalTo(self.containedView.top).with.offset(PADDING);
+      make.left.equalTo(self.containedView.left).with.offset(PADDING);
+      make.right.equalTo(self.containedView.right).with.offset(-PADDING);
+    }];
+    [self.titleLabel sizeToFit];
+  }
   
-  [self.window makeKeyAndVisible];
-}
-
-- (void) animateIn {
-  self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-  self.containerView.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1.0);
-  self.containerView.alpha = 0.0;
+  if (self.message) {
+    self.messageLabel = [[UILabel alloc] init];
+    self.messageLabel.text = self.message;
+    self.messageLabel.font = [UIFont systemFontOfSize:14.0];
+    self.messageLabel.numberOfLines = 0;
+    self.messageLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.containedView addSubview:self.messageLabel];
+    
+    [self.messageLabel makeConstraints:^(MASConstraintMaker *make) {
+      if (self.titleLabel) {
+        make.top.equalTo(self.titleLabel.bottom).with.offset(PADDING/3);
+      } else {
+        make.top.equalTo(self.containedView.top).with.offset(PADDING);
+      }
+      
+      make.left.equalTo(self.containedView.left).with.offset(PADDING);
+      make.right.equalTo(self.containedView.right).with.offset(-PADDING);
+    }];
+    [self.messageLabel sizeToFit];
+  }
   
-  [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-    self.backgroundColor = OVERLAY_COLOUR;
-    self.containerView.layer.transform = CATransform3DIdentity;
-    self.containerView.alpha = 1.0;
-    self.previousWindow.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
-  } completion:nil];
+  MASViewAttribute *topAttribute;
+  if (self.messageLabel) {
+    topAttribute = self.messageLabel.bottom;
+  } else if (self.titleLabel) {
+    topAttribute = self.titleLabel.bottom;
+  } else {
+    topAttribute = self.messageLabel.top;
+  }
+  
+  NSMutableArray *buttons = [NSMutableArray array];
+  UIButton *previousButton = nil;
+  for (NSString *buttonTitle in self.buttonTitles) {
+    BOOL isLastButton = [buttonTitle isEqual:self.buttonTitles.lastObject];
+    UIButton *button = [[UIButton alloc] init];
+    button.tintColor = DOGE_RED;
+    [button setTitleColor:DOGE_RED forState:UIControlStateNormal];
+    [button setTitle:buttonTitle forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.containedView addSubview:button];
+    
+    if (isLastButton) {
+      button.titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont buttonFontSize]];
+    }
+    
+    [button makeConstraints:^(MASConstraintMaker *make) {
+      make.height.equalTo(@BUTTON_HEIGHT);
+      
+      if (self.buttonTitles.count > 2) {
+        make.left.equalTo(self.containedView.left);
+        make.right.equalTo(self.containedView.right);
+        
+        if (previousButton) {
+          make.top.equalTo(previousButton.bottom);
+        } else {
+          make.top.equalTo(topAttribute).with.offset(PADDING);
+        }
+      } else {
+        make.width.equalTo(@(WIDTH/2));
+        make.top.equalTo(topAttribute).with.offset(PADDING);
+        
+        if (previousButton) {
+          make.left.equalTo(previousButton.right);
+        } else {
+          make.left.equalTo(self.containedView);
+        }
+      }
+      
+      if ([buttonTitle isEqual:self.buttonTitles.lastObject]) {
+        make.bottom.equalTo(self.containedView);
+      }
+    }];
+    
+    if (self.buttonTitles.count == 1 || !isLastButton) {
+      UIView *buttonLine = [[UIView alloc] init];
+      buttonLine.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
+      [self.containedView addSubview:buttonLine];
+      
+      [buttonLine makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(button.top);
+        make.left.equalTo(self.containedView);
+        make.right.equalTo(self.containedView);
+        make.height.equalTo(@0.5);
+      }];
+    }
+    
+    if (self.buttonTitles.count == 2 && isLastButton) {
+      UIView *buttonLine = [[UIView alloc] init];
+      buttonLine.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
+      [self.containedView addSubview:buttonLine];
+      
+      [buttonLine makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(button.top).with.offset(0.5);
+        make.bottom.equalTo(self.containedView);
+        make.width.equalTo(@0.5);
+        make.left.equalTo(button);
+      }];
+    }
+    
+    previousButton = button;
+    [buttons addObject:button];
+  }
+  
+  self.buttons = buttons;
 }
 
-- (void) animateOut {
-  [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-    self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    self.containerView.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1.0);
-    self.containerView.alpha = 0.0;
-    self.previousWindow.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
-  } completion:^(BOOL finished) {
-    [self teardown];
-  }];
-}
 
-- (void) teardown {
-  self.previousWindow.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
-  [self.previousWindow makeKeyAndVisible];
-  [self removeFromSuperview];
-  [self.window removeFromSuperview];
-  self.window = nil;
-}
-
-# pragma mark - Public Display Behaviour
+# pragma mark - Displaying Alert View
 
 - (void) show {
   [self showAnimated:YES];
 }
 
-- (void) dismiss {
-  [self dismissAnimated:YES];
-}
-
 - (void) showAnimated:(BOOL)animated {
-  [self preshow];
-  if (animated) {
-    [self animateIn];
-  } else {
-    self.previousWindow.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
-  }
+  [self showAnimated:animated completion:nil];
 }
 
-- (void) dismissAnimated:(BOOL)animated {
-  if (animated) {
-    [self animateOut];
-  } else {
-    [self teardown];
+- (void) showAnimated:(BOOL)animated completion:(PPLCustomAlertViewCompletionBlock)completionBlock {
+  [self constructViews];
+  
+  if ([self.delegate respondsToSelector:@selector(willPresentAlertView:)]) {
+    [self.delegate willPresentAlertView:self];
   }
+  
+  [super showAnimated:animated completion:^{
+    if ([self.delegate respondsToSelector:@selector(didPresentAlertView:)]) {
+      [self.delegate didPresentAlertView:self];
+    }
+    
+    if (completionBlock) {
+      completionBlock();
+    }
+  }];
+}
+
+- (void) showWithDismissHandler:(PPLAlertViewDismissBlock)dismissBlock {
+  self.dismissBlock = dismissBlock;
+  [self show];
+}
+
+- (void) dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated {
+  if (buttonIndex == 0 && [self.delegate respondsToSelector:@selector(alertViewCancel:)]) {
+    [self.delegate alertViewCancel:self];
+  }
+  
+  if ([self.delegate respondsToSelector:@selector(alertView:willDismissWithButtonIndex:)]) {
+    [self.delegate alertView:self willDismissWithButtonIndex:buttonIndex];
+  }
+  
+  [self dismissAnimated:animated completion:^{
+    if (self.dismissBlock) self.dismissBlock(buttonIndex);
+    
+    if ([self.delegate respondsToSelector:@selector(alertView:didDismissWithButtonIndex:)]) {
+      [self.delegate alertView:self didDismissWithButtonIndex:buttonIndex];
+    }
+  }];
+}
+
+
+# pragma mark - Buttons
+
+- (NSInteger) addButtonWithTitle:(NSString *) title {
+  [self.internalButtonTitles addObject:title];
+  return 0;
+}
+
+- (NSString *) buttonTitleAtIndex:(NSInteger) buttonIndex {
+  return self.buttonTitles[buttonIndex];
 }
 
 
 # pragma mark - Properties
 
-- (void) setContainedView:(UIView *)containedView {
-  [_containedView removeFromSuperview];
-  _containedView = containedView;
-  [self.containerView addSubview:containedView];
-  
-  [self.containerView makeConstraints:^(MASConstraintMaker *make) {
-    make.width.equalTo(self.containedView);
-    make.height.equalTo(self.containedView);
-  }];
-  
-  [self.containedView makeConstraints:^(MASConstraintMaker *make) {
-    make.left.equalTo(self.containerView);
-    make.top.equalTo(self.containerView);
-  }];
+- (void) setButtonTitles:(NSArray *)buttonTitles {
+  self.internalButtonTitles = [NSMutableArray arrayWithArray:buttonTitles];
 }
 
+- (NSArray *) buttonTitles {
+  return self.internalButtonTitles;
+}
+
+- (NSMutableArray *) internalButtonTitles {
+  if (_internalButtonTitles) return _internalButtonTitles;
+  return _internalButtonTitles = [NSMutableArray array];
+}
 
 
 @end

@@ -21,4 +21,7 @@
 - (void) dismissLabelEditorViewConfirmed:(BOOL)confirmed;
 
 - (void) updateLabels;
+
+- (void) animateOut;
+- (void) hideToolbarsAnimated:(BOOL)animated;
 @end

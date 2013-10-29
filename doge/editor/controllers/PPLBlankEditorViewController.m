@@ -31,10 +31,6 @@
   return self;
 }
 
-- (void) viewDidLoad {
-  [super viewDidLoad];
-}
-
 
 #pragma mark - Private Methods
 

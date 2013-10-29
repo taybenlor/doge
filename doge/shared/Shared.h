@@ -34,4 +34,6 @@
 #define OUTPUT_IMAGE_WIDTH 640
 #define OUTPUT_IMAGE_HEIGHT 640
 
+typedef void(^PPLCallback)(void);
+
 #endif

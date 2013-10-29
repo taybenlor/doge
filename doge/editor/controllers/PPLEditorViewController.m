@@ -12,6 +12,7 @@
 #import "PPLEditorLabel.h"
 #import "UIAlertView+Blocks.h"
 #import "PPLBlankEditorViewController.h"
+#import "PPLAlertView.h"
 
 @interface PPLEditorViewController ()
 @property (nonatomic) NSMutableSet *labels;
@@ -121,18 +122,40 @@
 
 - (void) newDogeTapped {
   [TestFlight passCheckpoint:@"Began Starting Again"];
-  UIAlertView *alertView = [[UIAlertView alloc] init];
-  alertView.title = NSLocalizedString(@"Starting a new dogestagram will trash this stunning creation", @"New creation alert view text");
+  PPLAlertView *alertView = [[PPLAlertView alloc] init];
+  alertView.title = NSLocalizedString(@"Trash this creation?", @"New creation alert view title");
+  alertView.message = NSLocalizedString(@"Starting a new dogestagram will trash this stunning creation", @"New creation alert view descriptive message");
   [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
-  [alertView addButtonWithTitle:NSLocalizedString(@"trash it", @"trash it and start again")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"trash it", @"trash it and start a new one")];
   [alertView setTintColor:DOGE_RED];
-  [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+  [alertView showWithDismissHandler:^(NSInteger buttonIndex) {
     if (buttonIndex) {
       [TestFlight passCheckpoint:@"Started Again"];
-      PPLBlankEditorViewController *blankEditorViewController = [[PPLBlankEditorViewController alloc] init];
-      [self.navigationController setViewControllers:@[blankEditorViewController] animated:YES];
+      [self transitionToBlankEditor];
     }
   }];
+}
+
+
+#pragma mark - Transition
+
+- (void) transitionToBlankEditor {
+  PPLBlankEditorViewController *blankEditorViewController = [[PPLBlankEditorViewController alloc] init];
+  
+  [self.view animateOut];
+  
+  [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    self.navigationItem.leftBarButtonItem.tintColor = DOGE_RED; // fade them out
+    self.navigationItem.rightBarButtonItem.tintColor = DOGE_RED;
+  } completion:^(BOOL finished) {
+    
+  }];
+  
+  double delayInSeconds = 0.8;
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [self.navigationController setViewControllers:@[blankEditorViewController] animated:NO];
+  });
 }
 
 
@@ -188,12 +211,14 @@
 
 - (void) deleteLabelTriggered {
   [TestFlight passCheckpoint:@"Started Trashing a Label"];
-  UIAlertView *alertView = [[UIAlertView alloc] init];
-  alertView.title = NSLocalizedString(@"Are you sure you want to delete this?", @"Delete alert view text");
+  PPLAlertView *alertView = [[PPLAlertView alloc] init];
+  NSString *alertViewTitle = NSLocalizedString(@"Delete \"%@\"?", @"Delete alert view text");
+  alertView.title = [NSString stringWithFormat:alertViewTitle, self.selectedLabel.text];
+
   [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
   [alertView addButtonWithTitle:NSLocalizedString(@"delete", @"delete")];
   [alertView setTintColor:DOGE_RED];
-  [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+  [alertView showWithDismissHandler:^(NSInteger buttonIndex) {
     if (buttonIndex) {
       [TestFlight passCheckpoint:@"Trashed a Label"];
       [self.labels removeObject:self.selectedLabel];

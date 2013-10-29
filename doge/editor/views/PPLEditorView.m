@@ -11,7 +11,7 @@
 #import "PPLEditorBottomToolbar.h"
 #import "PPLLabelEditorView.h"
 #import "PPLLabelContainerView.h"
-#import "PPLAlertView.h"
+#import "PPLCustomAlertView.h"
 
 #define ANIMATION_DURATION 0.2
 
@@ -28,8 +28,9 @@
 @property (nonatomic) NSMutableSet *editorLabels;
 
 @property id<MASConstraint> bottomToolbarBottomConstraint;
+@property id<MASConstraint> topToolbarTopConstraint;
 
-@property PPLAlertView *alertView;
+@property PPLCustomAlertView *alertView;
 
 @end
 
@@ -67,7 +68,7 @@
     self.topToolbar = [[PPLEditorTopToolbar alloc] initWithEditorView:self];
     [self addSubview:self.topToolbar];
     [self.topToolbar makeConstraints:^(MASConstraintMaker *make) {
-      make.top.equalTo(self);
+      self.topToolbarTopConstraint = make.top.equalTo(self);
       make.left.equalTo(self);
       make.width.equalTo(self);
       make.height.equalTo(@44);
@@ -95,7 +96,43 @@
 }
 
 
+# pragma mark - Transitions
+
+- (void) animateOut {
+  [self hideToolbarsAnimated:YES];
+  
+  double delayInSeconds = ANIMATION_DURATION;
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [self.bottomToolbar removeFromSuperview];
+    [self.topToolbar removeFromSuperview];
+  });
+  
+  [UIView animateWithDuration:ANIMATION_DURATION delay:ANIMATION_DURATION*1.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    CGRect blah = self.bounds;
+    blah.origin.y = -blah.size.height;
+    self.bounds = blah;
+  } completion:^(BOOL finished) {
+    
+  }];
+  
+}
+
 # pragma mark - Toolbars
+
+- (void) hideToolbarsAnimated:(BOOL)animated {
+  self.bottomToolbarBottomConstraint.offset(44);
+  self.topToolbarTopConstraint.offset(-44);
+  [self.labelContainerView layoutIfNeeded];
+  
+  if (animated) {
+    [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+      [self layoutIfNeeded];
+    }];
+  } else {
+    [self layoutIfNeeded];
+  }
+}
 
 - (void) showEditToolbarAnimated:(BOOL)animated {
   self.bottomToolbarBottomConstraint.offset(0);
@@ -147,17 +184,17 @@
 
 - (void) presentLabelEditorView {
   self.labelEditorView = [[PPLLabelEditorView alloc] initWithEditorView:self configuration:PPLLabelEditorViewConfigurationCreate];
-  
-  self.alertView = [[PPLAlertView alloc] init];
-  self.alertView.containedView = self.labelEditorView;
-  [self.alertView show];
+  [self displayLabelEditorView];
 }
 
 - (void) presentLabelEditorViewWithLabel:(PPLLabel *)label {
   self.labelEditorView = [[PPLLabelEditorView alloc] initWithEditorView:self configuration:PPLLabelEditorViewConfigurationEdit];
   self.labelEditorView.currentLabel = label;
-  
-  self.alertView = [[PPLAlertView alloc] init];
+  [self displayLabelEditorView];
+}
+
+- (void) displayLabelEditorView {
+  self.alertView = [[PPLCustomAlertView alloc] init];
   self.alertView.containedView = self.labelEditorView;
   [self.alertView show];
 }

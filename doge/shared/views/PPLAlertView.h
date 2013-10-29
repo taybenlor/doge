@@ -2,34 +2,59 @@
 //  PPLAlertView.h
 //  doge
 //
-//  Created by Ben Taylor on 28/10/13.
+//  Created by Ben Taylor on 29/10/13.
 //  Copyright (c) 2013 Pepper Labs. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PPLCustomAlertView.h"
+
+typedef void(^PPLAlertViewDismissBlock)(NSInteger buttonIndex);
+
+@class PPLAlertView;
 
 @protocol PPLAlertViewDelegate <NSObject>
 
 @optional
 
+- (void)alertView:(PPLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(PPLAlertView *)alertView;
+
+- (void)willPresentAlertView:(PPLAlertView *)alertView;
+- (void)didPresentAlertView:(PPLAlertView *)alertView;
+
+- (void)alertView:(PPLAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex;
+- (void)alertView:(PPLAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
+
+- (void)alertViewCancel:(PPLAlertView *)alertView;
+
 @end
 
-@protocol PPLAlertViewDataSource <NSObject>
+@interface PPLAlertView : PPLCustomAlertView
 
-@optional
+@property id<PPLAlertViewDelegate> delegate;
 
-@end
+@property NSString *title;
+@property NSString *message;
+@property NSString *cancelButtonTitle;
+@property (nonatomic) NSArray *buttonTitles;
 
-@interface PPLAlertView : UIView
+@property (nonatomic, strong) PPLAlertViewDismissBlock dismissBlock;
 
-- (void) show;
-- (void) dismiss;
+@property (readonly) UILabel *titleLabel;
+@property (readonly) UILabel *messageLabel;
+@property (readonly) NSArray *buttons;
 
-- (void) showAnimated:(BOOL)animated;
-- (void) dismissAnimated:(BOOL)animated;
+- (instancetype) initWithTitle:(NSString *)title message:(NSString *)message delegate:(id<PPLAlertViewDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
+- (instancetype) initWithTitle:(NSString *)title message:(NSString *)message delegate:(id<PPLAlertViewDelegate>)delegate buttonTitles:(NSArray *)buttonTitles;
 
-@property (readonly) UIView *overlayView;
-@property (readonly) UIView *containerView;
-@property (nonatomic) UIView *containedView;
+- (NSInteger) addButtonWithTitle:(NSString *) title;
+- (NSString *) buttonTitleAtIndex:(NSInteger) buttonIndex;
+
+- (void) constructViews;
+
+- (void) showWithDismissHandler:(PPLAlertViewDismissBlock) dismissBlock;
+
+- (void) dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 
 @end
