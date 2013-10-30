@@ -62,7 +62,8 @@
 #pragma mark - Private Methods
 
 - (void) share {
-  [TestFlight passCheckpoint:@"Shared an Image"];
+  [PPLTrackingHelper passCheckpoint:@"Shared an Image"];
+
   UIImage *renderedImage = [self renderImage];
   
   UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[renderedImage] applicationActivities:nil];
@@ -121,16 +122,17 @@
 #pragma mark - Actions
 
 - (void) newDogeTapped {
-  [TestFlight passCheckpoint:@"Began Starting Again"];
+  [PPLTrackingHelper passCheckpoint:@"Began Starting Again"];
+
   PPLAlertView *alertView = [[PPLAlertView alloc] init];
   alertView.title = NSLocalizedString(@"Trash this creation?", @"New creation alert view title");
-  alertView.message = NSLocalizedString(@"Starting a new dogestagram will trash this stunning creation", @"New creation alert view descriptive message");
+  alertView.message = NSLocalizedString(@"Starting a new doge will trash this stunning creation.", @"New creation alert view descriptive message");
   [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
   [alertView addButtonWithTitle:NSLocalizedString(@"trash it", @"trash it and start a new one")];
   [alertView setTintColor:DOGE_RED];
   [alertView showWithDismissHandler:^(NSInteger buttonIndex) {
     if (buttonIndex) {
-      [TestFlight passCheckpoint:@"Started Again"];
+      [PPLTrackingHelper passCheckpoint:@"Started Again"];
       [self transitionToBlankEditor];
     }
   }];
@@ -144,12 +146,8 @@
   
   [self.view animateOut];
   
-  [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-    self.navigationItem.leftBarButtonItem.tintColor = DOGE_RED; // fade them out
-    self.navigationItem.rightBarButtonItem.tintColor = DOGE_RED;
-  } completion:^(BOOL finished) {
-    
-  }];
+  [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+  [self.navigationItem setRightBarButtonItem:nil animated:YES];
   
   double delayInSeconds = 0.8;
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -178,7 +176,7 @@
 #pragma mark - Triggerable Events
 
 - (void) addLabelTriggered {
-  [TestFlight passCheckpoint:@"Began Adding a Label"];
+  [PPLTrackingHelper passCheckpoint:@"Began Adding a Label"];
   [self.view presentLabelEditorView];
 }
 
@@ -195,22 +193,22 @@
 }
 
 - (void) editLabelTriggered {
-  [TestFlight passCheckpoint:@"Edited a Label"];
+  [PPLTrackingHelper passCheckpoint:@"Edited a Label"];
   [self.view presentLabelEditorViewWithLabel:self.selectedLabel];
 }
 
 - (void) increaseLabelSizeTriggered {
-  [TestFlight passCheckpoint:@"Increased Label Size"];
+  [PPLTrackingHelper passCheckpoint:@"Increased Label Size"];
   [self.selectedLabel increaseFontSize];
 }
 
 - (void) decreaseLabelSizeTriggered {
-  [TestFlight passCheckpoint:@"Decreased Label Size"];
+  [PPLTrackingHelper passCheckpoint:@"Decreased Label Size"];
   [self.selectedLabel decreaseFontSize];
 }
 
 - (void) deleteLabelTriggered {
-  [TestFlight passCheckpoint:@"Started Trashing a Label"];
+  [PPLTrackingHelper passCheckpoint:@"Started Trashing a Label"];
   PPLAlertView *alertView = [[PPLAlertView alloc] init];
   NSString *alertViewTitle = NSLocalizedString(@"Delete \"%@\"?", @"Delete alert view text");
   alertView.title = [NSString stringWithFormat:alertViewTitle, self.selectedLabel.text];
@@ -220,7 +218,7 @@
   [alertView setTintColor:DOGE_RED];
   [alertView showWithDismissHandler:^(NSInteger buttonIndex) {
     if (buttonIndex) {
-      [TestFlight passCheckpoint:@"Trashed a Label"];
+      [PPLTrackingHelper passCheckpoint:@"Trashed a Label"];
       [self.labels removeObject:self.selectedLabel];
       [self.view updateLabels];
     }

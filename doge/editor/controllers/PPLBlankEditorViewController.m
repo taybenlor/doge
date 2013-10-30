@@ -35,7 +35,7 @@
 #pragma mark - Private Methods
 
 - (void) openImagePicker {
-  [TestFlight passCheckpoint:@"Open Image Picker"];
+  [PPLTrackingHelper passCheckpoint:@"Open Image Picker"];
   
 #if TARGET_IPHONE_SIMULATOR
   [self pickedImage:[UIImage imageNamed:@"demo.jpg"]];
@@ -49,7 +49,7 @@
 }
 
 - (void) pickedImage:(UIImage *)image {
-  [TestFlight passCheckpoint:@"Picked An Image"];
+  [PPLTrackingHelper passCheckpoint:@"Picked An Image"];
   
   [UINavigationBar appearance].tintColor = [UIColor whiteColor];
   [self.navigationController dismissViewControllerAnimated:YES completion:nil];

@@ -12,7 +12,6 @@
 		B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217308180EDD3F0088D821 /* PPLColourPickerView.m */; };
 		B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */; };
 		B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382D180437940000B989 /* PPLEditorBottomToolbar.m */; };
-		B59301ED18153A9000A6AF94 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59301E718153A9000A6AF94 /* libTestFlight.a */; };
 		B59301EE18153A9000A6AF94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E818153A9000A6AF94 /* README.md */; };
 		B59301EF18153A9000A6AF94 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E918153A9000A6AF94 /* release_notes.md */; };
 		B59301F118153ABE00A6AF94 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B59301F018153ABE00A6AF94 /* libz.dylib */; };
@@ -44,6 +43,11 @@
 		B5FCB40D1813C7CC002E5B43 /* NSArray+Sampling.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB40C1813C7CC002E5B43 /* NSArray+Sampling.m */; };
 		B5FCB4101813CC9C002E5B43 /* PPLDashedRoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB40F1813CC9C002E5B43 /* PPLDashedRoundedRectView.m */; };
 		B5FCB4131813E84B002E5B43 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB4121813E84B002E5B43 /* UIAlertView+Blocks.m */; };
+		B5FDF671182152830092CF3B /* PPLTrackingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FDF670182152830092CF3B /* PPLTrackingHelper.m */; };
+		B5FDF67A182153FA0092CF3B /* libLocalyticsAMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDF674182153FA0092CF3B /* libLocalyticsAMP.a */; };
+		B5FDF67E182154210092CF3B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDF67D182154210092CF3B /* AdSupport.framework */; };
+		B5FDF6801821542D0092CF3B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDF67F1821542D0092CF3B /* libsqlite3.dylib */; };
+		B5FDF682182154370092CF3B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDF681182154370092CF3B /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,17 @@
 		B5FCB40F1813CC9C002E5B43 /* PPLDashedRoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLDashedRoundedRectView.m; sourceTree = "<group>"; };
 		B5FCB4111813E84B002E5B43 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		B5FCB4121813E84B002E5B43 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		B5FDF66F182152830092CF3B /* PPLTrackingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPLTrackingHelper.h; path = wrappers/PPLTrackingHelper.h; sourceTree = "<group>"; };
+		B5FDF670182152830092CF3B /* PPLTrackingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPLTrackingHelper.m; path = wrappers/PPLTrackingHelper.m; sourceTree = "<group>"; };
+		B5FDF673182153FA0092CF3B /* iOSa_2.21.0.version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOSa_2.21.0.version; sourceTree = "<group>"; };
+		B5FDF674182153FA0092CF3B /* libLocalyticsAMP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLocalyticsAMP.a; sourceTree = "<group>"; };
+		B5FDF675182153FA0092CF3B /* libLocalyticsAMP_x64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLocalyticsAMP_x64.a; sourceTree = "<group>"; };
+		B5FDF676182153FA0092CF3B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B5FDF677182153FA0092CF3B /* LocalyticsAmpSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsAmpSession.h; sourceTree = "<group>"; };
+		B5FDF678182153FA0092CF3B /* LocalyticsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsSession.h; sourceTree = "<group>"; };
+		B5FDF67D182154210092CF3B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		B5FDF67F1821542D0092CF3B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		B5FDF681182154370092CF3B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +144,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5FDF682182154370092CF3B /* SystemConfiguration.framework in Frameworks */,
+				B5FDF6801821542D0092CF3B /* libsqlite3.dylib in Frameworks */,
+				B5FDF67E182154210092CF3B /* AdSupport.framework in Frameworks */,
 				B59301F118153ABE00A6AF94 /* libz.dylib in Frameworks */,
-				B59301ED18153A9000A6AF94 /* libTestFlight.a in Frameworks */,
 				B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */,
 				B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */,
 				B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */,
 				4E682F0B0F514091A76C3EDE /* libPods-doge.a in Frameworks */,
+				B5FDF67A182153FA0092CF3B /* libLocalyticsAMP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +220,10 @@
 		B5D5D4C117FC601700F052FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5FDF681182154370092CF3B /* SystemConfiguration.framework */,
+				B5FDF67F1821542D0092CF3B /* libsqlite3.dylib */,
+				B5FDF67D182154210092CF3B /* AdSupport.framework */,
+				B5FDF672182153FA0092CF3B /* AMP-SDK */,
 				B59301F018153ABE00A6AF94 /* libz.dylib */,
 				B59301E618153A9000A6AF94 /* TestFlightSDK2.0.2 */,
 				B5D5D4C217FC601700F052FE /* Foundation.framework */,
@@ -260,6 +282,7 @@
 		B5D5D4F717FC613D00F052FE /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				B5FDF66E1821526A0092CF3B /* wrappers */,
 				B5FCB40A1813C7C1002E5B43 /* categories */,
 				B5FCB3FF1813C73E002E5B43 /* views */,
 				B59DD92E17FF05BA00CCDE08 /* controllers */,
@@ -372,6 +395,28 @@
 				B5FCB4121813E84B002E5B43 /* UIAlertView+Blocks.m */,
 			);
 			path = categories;
+			sourceTree = "<group>";
+		};
+		B5FDF66E1821526A0092CF3B /* wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				B5FDF66F182152830092CF3B /* PPLTrackingHelper.h */,
+				B5FDF670182152830092CF3B /* PPLTrackingHelper.m */,
+			);
+			name = wrappers;
+			sourceTree = "<group>";
+		};
+		B5FDF672182153FA0092CF3B /* AMP-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				B5FDF673182153FA0092CF3B /* iOSa_2.21.0.version */,
+				B5FDF674182153FA0092CF3B /* libLocalyticsAMP.a */,
+				B5FDF675182153FA0092CF3B /* libLocalyticsAMP_x64.a */,
+				B5FDF676182153FA0092CF3B /* LICENSE */,
+				B5FDF677182153FA0092CF3B /* LocalyticsAmpSession.h */,
+				B5FDF678182153FA0092CF3B /* LocalyticsSession.h */,
+			);
+			path = "AMP-SDK";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +560,7 @@
 				B59DD9341802381700CCDE08 /* PPLLabel.m in Sources */,
 				B5D5D4CF17FC601700F052FE /* main.m in Sources */,
 				B5217304180EA2D30088D821 /* PPLLabelContainerView.m in Sources */,
+				B5FDF671182152830092CF3B /* PPLTrackingHelper.m in Sources */,
 				B59DD92917FF00EF00CCDE08 /* PPLEditorViewController.m in Sources */,
 				B5AF4216181EB5F60091A204 /* PPLAlertView.m in Sources */,
 				B5AF420D181E08880091A204 /* PPLCustomAlertView.m in Sources */,
@@ -666,6 +712,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ben/Dropbox/Projects/Doge/Development/doge/TestFlightSDK2.0.2,
+					"/Users/ben/Dropbox/Projects/Doge/Development/doge/AMP-SDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0C00184D-1F15-427F-94BA-C086295143FF";
@@ -693,6 +740,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ben/Dropbox/Projects/Doge/Development/doge/TestFlightSDK2.0.2,
+					"/Users/ben/Dropbox/Projects/Doge/Development/doge/AMP-SDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "608C951B-49EB-43E6-A192-EB1D137BDA4C";

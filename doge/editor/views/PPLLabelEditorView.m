@@ -180,7 +180,7 @@
 # pragma mark - UITextFieldDelegate
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
-  [TestFlight passCheckpoint:@"Changed Label Text"];
+  [PPLTrackingHelper passCheckpoint:@"Changed Label Text"];
   
   [textField resignFirstResponder];
   return NO;
@@ -190,13 +190,13 @@
 # pragma mark - Triggers
 
 - (void) cancelButtonTapped:(id)sender {
-  [TestFlight passCheckpoint:@"Cancelled Editing Label"];
+  [PPLTrackingHelper passCheckpoint:@"Cancelled Editing Label"];
   
   [self.editorView dismissLabelEditorViewConfirmed:NO];
 }
 
 - (void) confirmButtonTapped:(id)sender {
-  [TestFlight passCheckpoint:@"Edited a Label"];
+  [PPLTrackingHelper passCheckpoint:@"Edited a Label"];
   
   self.currentLabel.text = self.textField.text;
   self.currentLabel.rotation = 0.0;
