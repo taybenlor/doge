@@ -28,14 +28,20 @@
     self.containerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.85];
     self.containerView.layer.cornerRadius = DOGE_CORNER_RADIUS;
     [self addSubview:self.containerView];
-    
-    /* Try this out again when you have some time
-     UIToolbar *containerView = [[UIToolbar alloc] init];
-     containerView.translucent = YES;
-     containerView.layer.cornerRadius = DOGE_CORNER_RADIUS;
-     [self addSubview:containerView];
-     self.containerView = containerView;
-     */
+
+//    TODO: Animates super strange. Come back to this
+//
+//    UIToolbar *effectsToolbar = [[UIToolbar alloc] init];
+//    effectsToolbar.translucent = YES;
+//    UIView *effectsView = ((UIView *) effectsToolbar.subviews.firstObject).subviews.firstObject;
+//    effectsView.layer.cornerRadius = DOGE_CORNER_RADIUS;
+//    for (UIView *subview in effectsView.subviews) {
+//      subview.layer.cornerRadius = DOGE_CORNER_RADIUS;
+//    }
+//    [self.containerView addSubview:effectsView];
+//    [effectsView makeConstraints:^(MASConstraintMaker *make) {
+//      make.edges.equalTo(self.containerView);
+//    }];
   }
   return self;
 }

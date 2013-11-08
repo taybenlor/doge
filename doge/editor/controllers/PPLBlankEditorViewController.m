@@ -21,6 +21,9 @@
   if (self = [super init]) {
     self.view = [[PPLBlankEditorView alloc] initWithController:self];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app-title"]];
+    
+    UIBarButtonItem *hamburgerButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hamburger-button"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleHamburger)];
+    self.navigationItem.leftBarButtonItem = hamburgerButton;
 
     self.imagePickerController = [[UIImagePickerController alloc] init];
     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;

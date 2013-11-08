@@ -12,7 +12,7 @@
 @property UIView *menuContainerView;
 @property UIView *mainContainerView;
 
-@property NSLayoutConstraint *mainLeftConstraint;
+@property id<MASConstraint> mainLeftConstraint;
 @end
 
 @implementation PPLHamburgerViewController
@@ -64,6 +64,11 @@
 
 # pragma mark - Public Methods
 
+
+- (void) toggleIsOpenAnimated:(BOOL)animated {
+  [self setIsOpen:!self.isOpen animated:animated];
+}
+
 - (void) setIsOpen:(BOOL)isOpen {
   [self setIsOpen:isOpen animated:NO];
 }
@@ -71,7 +76,21 @@
 - (void) setIsOpen:(BOOL)isOpen animated:(BOOL)animated {
   _isOpen = isOpen;
   
-  // Animate the opening (or don't)
+  if (isOpen) {
+    self.mainLeftConstraint.offset(200);
+  } else {
+    self.mainLeftConstraint.offset(0);
+  }
+  
+  // TODO: animate position of the status bar
+  
+  if (animated) {
+    [UIView animateWithDuration:0.3 animations:^{
+      [self.view layoutIfNeeded];
+    }];
+  } else {
+    [self.view layoutIfNeeded];
+  }
 }
 
 - (void) setMainController:(UIViewController *)mainController {

@@ -10,6 +10,7 @@
 #import "PPLHamburgerViewController.h"
 #import "PPLBlankEditorViewController.h"
 #import "UINavigationController+DogeStyling.h"
+#import "PPLHistoryViewController.h"
 
 @interface PPLAppDelegate ()
 
@@ -24,11 +25,11 @@
   [PPLTrackingHelper startTracking];
   
   srand48(time(0));
-  PPLBlankEditorViewController *mainViewController = [[PPLBlankEditorViewController alloc] init];
-  UIViewController *menuViewController = [[UIViewController alloc] init];
-  self.navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+  PPLBlankEditorViewController *blankEditorViewController = [[PPLBlankEditorViewController alloc] init];
+  PPLHistoryViewController *historyViewController = [[PPLHistoryViewController alloc] init];
+  self.navigationController = [[UINavigationController alloc] initWithRootViewController:blankEditorViewController];
   self.hamburgerController = [[PPLHamburgerViewController alloc] initWithMain:self.navigationController
-                                                                         menu:menuViewController];
+                                                                         menu:historyViewController];
   
   [self.navigationController styleForDoge];
   [self styleApplication];

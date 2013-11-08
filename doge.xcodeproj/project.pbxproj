@@ -12,6 +12,12 @@
 		B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217308180EDD3F0088D821 /* PPLColourPickerView.m */; };
 		B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */; };
 		B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382D180437940000B989 /* PPLEditorBottomToolbar.m */; };
+		B5336C3B1825DDA200A09B2B /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5336C3A1825DDA200A09B2B /* Reveal.framework */; };
+		B5336CB818260E6A00A09B2B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5336CB618260E6A00A09B2B /* Model.xcdatamodeld */; };
+		B5336CBC182613E600A09B2B /* UIViewController+Hamburger.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CBB182613E600A09B2B /* UIViewController+Hamburger.m */; };
+		B5336CCA18262D5F00A09B2B /* PPLHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CC918262D5F00A09B2B /* PPLHistoryViewController.m */; };
+		B5336CCD18262D8B00A09B2B /* PPLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CCC18262D8B00A09B2B /* PPLHistoryCell.m */; };
+		B5336CD018263B3100A09B2B /* PPLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CCF18263B3100A09B2B /* PPLImage.m */; };
 		B59301EE18153A9000A6AF94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E818153A9000A6AF94 /* README.md */; };
 		B59301EF18153A9000A6AF94 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E918153A9000A6AF94 /* release_notes.md */; };
 		B59301F118153ABE00A6AF94 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B59301F018153ABE00A6AF94 /* libz.dylib */; };
@@ -71,6 +77,16 @@
 		B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorTopToolbar.m; sourceTree = "<group>"; };
 		B526382C180437940000B989 /* PPLEditorBottomToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLEditorBottomToolbar.h; sourceTree = "<group>"; };
 		B526382D180437940000B989 /* PPLEditorBottomToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorBottomToolbar.m; sourceTree = "<group>"; };
+		B5336C3A1825DDA200A09B2B /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../Downloads/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
+		B5336CB718260E6A00A09B2B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B5336CBA182613E600A09B2B /* UIViewController+Hamburger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Hamburger.h"; sourceTree = "<group>"; };
+		B5336CBB182613E600A09B2B /* UIViewController+Hamburger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Hamburger.m"; sourceTree = "<group>"; };
+		B5336CC818262D5F00A09B2B /* PPLHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLHistoryViewController.h; sourceTree = "<group>"; };
+		B5336CC918262D5F00A09B2B /* PPLHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLHistoryViewController.m; sourceTree = "<group>"; };
+		B5336CCB18262D8B00A09B2B /* PPLHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLHistoryCell.h; sourceTree = "<group>"; };
+		B5336CCC18262D8B00A09B2B /* PPLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLHistoryCell.m; sourceTree = "<group>"; };
+		B5336CCE18263B3100A09B2B /* PPLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLImage.h; sourceTree = "<group>"; };
+		B5336CCF18263B3100A09B2B /* PPLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLImage.m; sourceTree = "<group>"; };
 		B59301E718153A9000A6AF94 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		B59301E818153A9000A6AF94 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B59301E918153A9000A6AF94 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -151,6 +167,7 @@
 				B5D5D4C517FC601700F052FE /* CoreGraphics.framework in Frameworks */,
 				B5D5D4C717FC601700F052FE /* UIKit.framework in Frameworks */,
 				B5D5D4C317FC601700F052FE /* Foundation.framework in Frameworks */,
+				B5336C3B1825DDA200A09B2B /* Reveal.framework in Frameworks */,
 				4E682F0B0F514091A76C3EDE /* libPods-doge.a in Frameworks */,
 				B5FDF67A182153FA0092CF3B /* libLocalyticsAMP.a in Frameworks */,
 			);
@@ -169,6 +186,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5336CB9182613AA00A09B2B /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				B5336CBA182613E600A09B2B /* UIViewController+Hamburger.h */,
+				B5336CBB182613E600A09B2B /* UIViewController+Hamburger.m */,
+			);
+			path = categories;
+			sourceTree = "<group>";
+		};
+		B5336CBE182626A400A09B2B /* history */ = {
+			isa = PBXGroup;
+			children = (
+				B5336CC718262D5000A09B2B /* controllers */,
+				B5336CC0182626A400A09B2B /* views */,
+			);
+			path = history;
+			sourceTree = "<group>";
+		};
+		B5336CC0182626A400A09B2B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B5336CCB18262D8B00A09B2B /* PPLHistoryCell.h */,
+				B5336CCC18262D8B00A09B2B /* PPLHistoryCell.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B5336CC718262D5000A09B2B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5336CC818262D5F00A09B2B /* PPLHistoryViewController.h */,
+				B5336CC918262D5F00A09B2B /* PPLHistoryViewController.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
 		B59301E618153A9000A6AF94 /* TestFlightSDK2.0.2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +273,7 @@
 		B5D5D4C117FC601700F052FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5336C3A1825DDA200A09B2B /* Reveal.framework */,
 				B5FDF681182154370092CF3B /* SystemConfiguration.framework */,
 				B5FDF67F1821542D0092CF3B /* libsqlite3.dylib */,
 				B5FDF67D182154210092CF3B /* AdSupport.framework */,
@@ -240,6 +294,7 @@
 			children = (
 				B5D5D4F717FC613D00F052FE /* shared */,
 				B5D5D4F817FC613D00F052FE /* editor */,
+				B5336CBE182626A400A09B2B /* history */,
 				B5D5D4FB17FC613D00F052FE /* hamburger */,
 				B5D5D4D117FC601700F052FE /* PPLAppDelegate.h */,
 				B5D5D4D217FC601700F052FE /* PPLAppDelegate.m */,
@@ -282,6 +337,7 @@
 		B5D5D4F717FC613D00F052FE /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				B5336CB618260E6A00A09B2B /* Model.xcdatamodeld */,
 				B5FDF66E1821526A0092CF3B /* wrappers */,
 				B5FCB40A1813C7C1002E5B43 /* categories */,
 				B5FCB3FF1813C73E002E5B43 /* views */,
@@ -338,6 +394,7 @@
 		B5D5D4FB17FC613D00F052FE /* hamburger */ = {
 			isa = PBXGroup;
 			children = (
+				B5336CB9182613AA00A09B2B /* categories */,
 				B5D5D4FC17FC613D00F052FE /* controllers */,
 				B5D5D4FD17FC613D00F052FE /* views */,
 			);
@@ -365,6 +422,8 @@
 			children = (
 				B59DD9321802381700CCDE08 /* PPLLabel.h */,
 				B59DD9331802381700CCDE08 /* PPLLabel.m */,
+				B5336CCE18263B3100A09B2B /* PPLImage.h */,
+				B5336CCF18263B3100A09B2B /* PPLImage.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -555,6 +614,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FCB40D1813C7CC002E5B43 /* NSArray+Sampling.m in Sources */,
+				B5336CB818260E6A00A09B2B /* Model.xcdatamodeld in Sources */,
+				B5336CCA18262D5F00A09B2B /* PPLHistoryViewController.m in Sources */,
 				B5D5D50217FD2DDF00F052FE /* PPLHamburgerViewController.m in Sources */,
 				B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */,
 				B59DD9341802381700CCDE08 /* PPLLabel.m in Sources */,
@@ -565,11 +626,14 @@
 				B5AF4216181EB5F60091A204 /* PPLAlertView.m in Sources */,
 				B5AF420D181E08880091A204 /* PPLCustomAlertView.m in Sources */,
 				B5FCB4021813C73E002E5B43 /* PPLInsetTextField.m in Sources */,
+				B5336CBC182613E600A09B2B /* UIViewController+Hamburger.m in Sources */,
+				B5336CD018263B3100A09B2B /* PPLImage.m in Sources */,
 				B5AF4207181E084D0091A204 /* UINavigationController+DogeStyling.m in Sources */,
 				B5D5D4D317FC601700F052FE /* PPLAppDelegate.m in Sources */,
 				B526382E180437940000B989 /* PPLEditorBottomToolbar.m in Sources */,
 				B59DD92417FDA46400CCDE08 /* PPLBlankEditorView.m in Sources */,
 				B5FCB4131813E84B002E5B43 /* UIAlertView+Blocks.m in Sources */,
+				B5336CCD18262D8B00A09B2B /* PPLHistoryCell.m in Sources */,
 				B5BF3C3C1809355B00D705A0 /* PPLEditorLabel.m in Sources */,
 				B5BF3C341806A03500D705A0 /* PPLLabelEditorView.m in Sources */,
 				B5FCB4101813CC9C002E5B43 /* PPLDashedRoundedRectView.m in Sources */,
@@ -704,6 +768,7 @@
 					"$(inherited)",
 					/Users/ben/Dropbox/Projects/Doge/Development/doge,
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"/Users/ben/Downloads/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "doge/doge-Prefix.pch";
@@ -732,6 +797,7 @@
 					"$(inherited)",
 					/Users/ben/Dropbox/Projects/Doge/Development/doge,
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+					"/Users/ben/Downloads/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "doge/doge-Prefix.pch";
@@ -822,6 +888,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B5336CB618260E6A00A09B2B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5336CB718260E6A00A09B2B /* Model.xcdatamodel */,
+			);
+			currentVersion = B5336CB718260E6A00A09B2B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B5D5D4B717FC601700F052FE /* Project object */;
 }

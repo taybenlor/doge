@@ -37,8 +37,9 @@
 #endif
 
 #import "PPLTrackingHelper.h"
+#import "UIViewController+Hamburger.h"
 
-#define DOGE_RED [UIColor colorWithHue:1.000 saturation:0.599 brightness:0.792 alpha:1]
+#define DOGE_RED [UIColor colorWithRed:0.7890625 green:0.31640625 blue:0.31640625 alpha:1]
 #define DOGE_STEEL [UIColor colorWithHue:0.625 saturation:0.235 brightness:0.267 alpha:1]
 
 #define DOGE_FONT_NAME @"ChalkboardSE-Bold"

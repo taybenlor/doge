@@ -17,6 +17,8 @@
 - (id) initWithMain:(UIViewController *)mainController menu:(UIViewController *)menuController;
 
 - (void) setIsOpen:(BOOL)isOpen animated:(BOOL)animated;
+- (void) toggleIsOpenAnimated:(BOOL)animated;
+
 - (void) setMainController:(UIViewController *)mainController animated:(BOOL)animated;
 
 
