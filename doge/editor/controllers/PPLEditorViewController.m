@@ -29,22 +29,24 @@
     self.view = [[PPLEditorView alloc] initWithController:self];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app-title"]];
     
-//    UIBarButtonItem *newDogeButton = [[UIBarButtonItem alloc] initWithTitle:@"new"
-//                                                        style:UIBarButtonItemStylePlain
-//                                                       target:self
-//                                                       action:@selector(newDogeTapped)];
-//    newDogeButton.tintColor = [UIColor whiteColor];
-//    self.navigationItem.rightBarButtonItem = newDogeButton;
+    UIBarButtonItem *newDogeButton = [[UIBarButtonItem alloc] initWithTitle:@"new"
+                                                        style:UIBarButtonItemStylePlain
+                                                       target:self
+                                                       action:@selector(newDogeTapped)];
+    newDogeButton.tintColor = [UIColor whiteColor];
+    newDogeButton.accessibilityLabel = @"New doge";
+    self.navigationItem.rightBarButtonItem = newDogeButton;
     
-    UIBarButtonItem *hamburgerButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hamburger-button"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleHamburger)];
-    self.navigationItem.leftBarButtonItem = hamburgerButton;
+//    UIBarButtonItem *hamburgerButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hamburger-button"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleHamburger)];
+//    self.navigationItem.leftBarButtonItem = hamburgerButton;
     
     UIBarButtonItem *shareDogeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share-button"]
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
                                                                        action:@selector(shareDogeTriggered)];
     shareDogeButton.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = shareDogeButton;
+    shareDogeButton.accessibilityLabel = @"Share doge";
+    self.navigationItem.leftBarButtonItem = shareDogeButton;
   }
   return self;
 }
@@ -130,8 +132,8 @@
   PPLAlertView *alertView = [[PPLAlertView alloc] init];
   alertView.title = NSLocalizedString(@"Trash this creation?", @"New creation alert view title");
   alertView.message = NSLocalizedString(@"Starting a new doge will trash this stunning creation.", @"New creation alert view descriptive message");
-  [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
-  [alertView addButtonWithTitle:NSLocalizedString(@"trash it", @"trash it and start a new one")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"Trash it", @"Trash it and start a new one")];
   [alertView setTintColor:DOGE_RED];
   [alertView showWithDismissHandler:^(NSInteger buttonIndex) {
     if (buttonIndex) {
@@ -216,8 +218,8 @@
   NSString *alertViewTitle = NSLocalizedString(@"Delete \"%@\"?", @"Delete alert view text");
   alertView.title = [NSString stringWithFormat:alertViewTitle, self.selectedLabel.text];
 
-  [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
-  [alertView addButtonWithTitle:NSLocalizedString(@"delete", @"delete")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"Cancel", @"cancel")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"Delete", @"delete")];
   [alertView setTintColor:DOGE_RED];
   [alertView showWithDismissHandler:^(NSInteger buttonIndex) {
     if (buttonIndex) {

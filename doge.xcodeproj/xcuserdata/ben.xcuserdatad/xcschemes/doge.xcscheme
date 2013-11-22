@@ -38,6 +38,16 @@
                ReferencedContainer = "container:doge.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B500DD22183EF4900083C300"
+               BuildableName = "AcceptanceTests.octest"
+               BlueprintName = "AcceptanceTests"
+               ReferencedContainer = "container:doge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

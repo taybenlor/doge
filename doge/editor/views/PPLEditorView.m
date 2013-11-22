@@ -38,6 +38,8 @@
 
 - (id) init {
   if (self = [super init]) {
+    self.accessibilityLabel = @"Photo editor";
+    
     self.imageView = [[UIImageView alloc] init];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.clipsToBounds = YES;

@@ -19,14 +19,15 @@
 
 - (id) init {
   if (self = [super init]) {
-    NSString *addLabelText = NSLocalizedString(@"add doge text", @"add label button text");
-    NSString *shareDogeText = NSLocalizedString(@"share doge", @"add doge button text");
+    self.accessibilityLabel = @"Top toolbar";
+    
+    NSString *addLabelText = NSLocalizedString(@"Add doge text", @"add label button text");
+    NSString *shareDogeText = NSLocalizedString(@"Share doge", @"add doge button text");
     self.addLabelButton = [[UIBarButtonItem alloc] initWithTitle:addLabelText style:UIBarButtonItemStylePlain target:self action:@selector(addLabelButtonTapped:)];
     self.shareDogeButton = [[UIBarButtonItem alloc] initWithTitle:shareDogeText style:UIBarButtonItemStylePlain target:self action:@selector(shareDogeButtonTapped:)];
     
     self.addLabelButton.width = 290;
-    //self.addLabelButton.width = 134; // TODO: Work out a nicer way to do this
-    //self.shareDogeButton.width = 134;
+    self.addLabelButton.accessibilityLabel = @"Add doge text";
     
     self.barStyle = UIBarStyleDefault;
     self.translucent = NO;

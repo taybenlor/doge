@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4E682F0B0F514091A76C3EDE /* libPods-doge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE0C5EECD5041A8B208419D /* libPods-doge.a */; };
+		526C945EFA704B33918702A3 /* libPods-AcceptanceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC60AAE050D4684AB62FDBF /* libPods-AcceptanceTests.a */; };
+		B500DD25183EF4900083C300 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B500DD24183EF4900083C300 /* SenTestingKit.framework */; };
+		B500DD26183EF4900083C300 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C217FC601700F052FE /* Foundation.framework */; };
+		B500DD27183EF4900083C300 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C617FC601700F052FE /* UIKit.framework */; };
+		B500DD2D183EF4900083C300 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B500DD2B183EF4900083C300 /* InfoPlist.strings */; };
+		B500DD37183EF6230083C300 /* PPLPhotoPickingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B500DD36183EF6230083C300 /* PPLPhotoPickingTests.m */; };
+		B500DD39183EF9290083C300 /* PPLEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B500DD38183EF9290083C300 /* PPLEditorTests.m */; };
+		B500DD3C183EF9830083C300 /* KIFUITestActor+NavigationHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B500DD3B183EF9830083C300 /* KIFUITestActor+NavigationHelpers.m */; };
 		B5217304180EA2D30088D821 /* PPLLabelContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217303180EA2D30088D821 /* PPLLabelContainerView.m */; };
 		B5217309180EDD3F0088D821 /* PPLColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217308180EDD3F0088D821 /* PPLColourPickerView.m */; };
 		B526382B1804324F0000B989 /* PPLEditorTopToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B526382A1804324F0000B989 /* PPLEditorTopToolbar.m */; };
@@ -18,6 +26,8 @@
 		B5336CCA18262D5F00A09B2B /* PPLHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CC918262D5F00A09B2B /* PPLHistoryViewController.m */; };
 		B5336CCD18262D8B00A09B2B /* PPLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CCC18262D8B00A09B2B /* PPLHistoryCell.m */; };
 		B5336CD018263B3100A09B2B /* PPLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5336CCF18263B3100A09B2B /* PPLImage.m */; };
+		B540F2F1183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B540F2F0183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.m */; };
+		B540F2F4183F0430004A23BD /* UIView+ScreenPositionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B540F2F3183F0430004A23BD /* UIView+ScreenPositionHelpers.m */; };
 		B59301EE18153A9000A6AF94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E818153A9000A6AF94 /* README.md */; };
 		B59301EF18153A9000A6AF94 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = B59301E918153A9000A6AF94 /* release_notes.md */; };
 		B59301F118153ABE00A6AF94 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B59301F018153ABE00A6AF94 /* libz.dylib */; };
@@ -43,7 +53,6 @@
 		B5D5D4E317FC601700F052FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C217FC601700F052FE /* Foundation.framework */; };
 		B5D5D4E417FC601700F052FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D5D4C617FC601700F052FE /* UIKit.framework */; };
 		B5D5D4EC17FC601700F052FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5D5D4EA17FC601700F052FE /* InfoPlist.strings */; };
-		B5D5D4EE17FC601700F052FE /* dogeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D4ED17FC601700F052FE /* dogeTests.m */; };
 		B5D5D50217FD2DDF00F052FE /* PPLHamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */; };
 		B5FCB4021813C73E002E5B43 /* PPLInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB4011813C73E002E5B43 /* PPLInsetTextField.m */; };
 		B5FCB40D1813C7CC002E5B43 /* NSArray+Sampling.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FCB40C1813C7CC002E5B43 /* NSArray+Sampling.m */; };
@@ -57,6 +66,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B500DD31183EF4900083C300 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5D5D4B717FC601700F052FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5D5D4BE17FC601700F052FE;
+			remoteInfo = doge;
+		};
 		B5D5D4E517FC601700F052FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5D5D4B717FC601700F052FE /* Project object */;
@@ -69,6 +85,17 @@
 /* Begin PBXFileReference section */
 		0C699482359144809D4A3CFD /* Pods-doge.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doge.xcconfig"; path = "Pods/Pods-doge.xcconfig"; sourceTree = "<group>"; };
 		0CE0C5EECD5041A8B208419D /* libPods-doge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-doge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		324C7B9F1A364B34AEB843BB /* Pods-AcceptanceTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceTests.xcconfig"; path = "Pods/Pods-AcceptanceTests.xcconfig"; sourceTree = "<group>"; };
+		9FC60AAE050D4684AB62FDBF /* libPods-AcceptanceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcceptanceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B500DD23183EF4900083C300 /* AcceptanceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcceptanceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B500DD24183EF4900083C300 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B500DD2A183EF4900083C300 /* AcceptanceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AcceptanceTests-Info.plist"; sourceTree = "<group>"; };
+		B500DD2C183EF4900083C300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B500DD30183EF4900083C300 /* AcceptanceTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AcceptanceTests-Prefix.pch"; sourceTree = "<group>"; };
+		B500DD36183EF6230083C300 /* PPLPhotoPickingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLPhotoPickingTests.m; sourceTree = "<group>"; };
+		B500DD38183EF9290083C300 /* PPLEditorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLEditorTests.m; sourceTree = "<group>"; };
+		B500DD3A183EF9830083C300 /* KIFUITestActor+NavigationHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIFUITestActor+NavigationHelpers.h"; sourceTree = "<group>"; };
+		B500DD3B183EF9830083C300 /* KIFUITestActor+NavigationHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIFUITestActor+NavigationHelpers.m"; sourceTree = "<group>"; };
 		B5217302180EA2D30088D821 /* PPLLabelContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLLabelContainerView.h; sourceTree = "<group>"; };
 		B5217303180EA2D30088D821 /* PPLLabelContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLLabelContainerView.m; sourceTree = "<group>"; };
 		B5217307180EDD3F0088D821 /* PPLColourPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLColourPickerView.h; sourceTree = "<group>"; };
@@ -87,6 +114,10 @@
 		B5336CCC18262D8B00A09B2B /* PPLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLHistoryCell.m; sourceTree = "<group>"; };
 		B5336CCE18263B3100A09B2B /* PPLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLImage.h; sourceTree = "<group>"; };
 		B5336CCF18263B3100A09B2B /* PPLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLImage.m; sourceTree = "<group>"; };
+		B540F2EF183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIFUITestActor+OnScreenHelpers.h"; sourceTree = "<group>"; };
+		B540F2F0183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIFUITestActor+OnScreenHelpers.m"; sourceTree = "<group>"; };
+		B540F2F2183F0430004A23BD /* UIView+ScreenPositionHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ScreenPositionHelpers.h"; sourceTree = "<group>"; };
+		B540F2F3183F0430004A23BD /* UIView+ScreenPositionHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ScreenPositionHelpers.m"; sourceTree = "<group>"; };
 		B59301E718153A9000A6AF94 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		B59301E818153A9000A6AF94 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B59301E918153A9000A6AF94 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -130,7 +161,6 @@
 		B5D5D4E117FC601700F052FE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B5D5D4E917FC601700F052FE /* dogeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dogeTests-Info.plist"; sourceTree = "<group>"; };
 		B5D5D4EB17FC601700F052FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B5D5D4ED17FC601700F052FE /* dogeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dogeTests.m; sourceTree = "<group>"; };
 		B5D5D50017FD2DDF00F052FE /* PPLHamburgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLHamburgerViewController.h; sourceTree = "<group>"; };
 		B5D5D50117FD2DDF00F052FE /* PPLHamburgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLHamburgerViewController.m; sourceTree = "<group>"; };
 		B5D5D50317FD544900F052FE /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
@@ -156,6 +186,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B500DD20183EF4900083C300 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B500DD25183EF4900083C300 /* SenTestingKit.framework in Frameworks */,
+				B500DD27183EF4900083C300 /* UIKit.framework in Frameworks */,
+				B500DD26183EF4900083C300 /* Foundation.framework in Frameworks */,
+				526C945EFA704B33918702A3 /* libPods-AcceptanceTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5D5D4BC17FC601700F052FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,6 +227,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B500DD28183EF4900083C300 /* AcceptanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				B500DD36183EF6230083C300 /* PPLPhotoPickingTests.m */,
+				B500DD38183EF9290083C300 /* PPLEditorTests.m */,
+				B500DD29183EF4900083C300 /* Supporting Files */,
+				B500DD3A183EF9830083C300 /* KIFUITestActor+NavigationHelpers.h */,
+				B500DD3B183EF9830083C300 /* KIFUITestActor+NavigationHelpers.m */,
+				B540F2EF183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.h */,
+				B540F2F0183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.m */,
+				B540F2F2183F0430004A23BD /* UIView+ScreenPositionHelpers.h */,
+				B540F2F3183F0430004A23BD /* UIView+ScreenPositionHelpers.m */,
+			);
+			path = AcceptanceTests;
+			sourceTree = "<group>";
+		};
+		B500DD29183EF4900083C300 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B500DD2A183EF4900083C300 /* AcceptanceTests-Info.plist */,
+				B500DD2B183EF4900083C300 /* InfoPlist.strings */,
+				B500DD30183EF4900083C300 /* AcceptanceTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B5336CB9182613AA00A09B2B /* categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,10 +321,12 @@
 			isa = PBXGroup;
 			children = (
 				B5D5D4C817FC601700F052FE /* doge */,
+				B500DD28183EF4900083C300 /* AcceptanceTests */,
 				B5D5D4E717FC601700F052FE /* dogeTests */,
 				B5D5D4C117FC601700F052FE /* Frameworks */,
 				B5D5D4C017FC601700F052FE /* Products */,
 				0C699482359144809D4A3CFD /* Pods-doge.xcconfig */,
+				324C7B9F1A364B34AEB843BB /* Pods-AcceptanceTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,6 +335,7 @@
 			children = (
 				B5D5D4BF17FC601700F052FE /* doge.app */,
 				B5D5D4E017FC601700F052FE /* dogeTests.xctest */,
+				B500DD23183EF4900083C300 /* AcceptanceTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,6 +355,8 @@
 				B5D5D4C617FC601700F052FE /* UIKit.framework */,
 				B5D5D4E117FC601700F052FE /* XCTest.framework */,
 				0CE0C5EECD5041A8B208419D /* libPods-doge.a */,
+				B500DD24183EF4900083C300 /* SenTestingKit.framework */,
+				9FC60AAE050D4684AB62FDBF /* libPods-AcceptanceTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -319,7 +391,6 @@
 		B5D5D4E717FC601700F052FE /* dogeTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5D5D4ED17FC601700F052FE /* dogeTests.m */,
 				B5D5D4E817FC601700F052FE /* Supporting Files */,
 			);
 			path = dogeTests;
@@ -481,6 +552,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B500DD22183EF4900083C300 /* AcceptanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B500DD35183EF4900083C300 /* Build configuration list for PBXNativeTarget "AcceptanceTests" */;
+			buildPhases = (
+				6A6B3CA26714444BA247EAB7 /* Check Pods Manifest.lock */,
+				B500DD1F183EF4900083C300 /* Sources */,
+				B500DD20183EF4900083C300 /* Frameworks */,
+				B500DD21183EF4900083C300 /* Resources */,
+				7C9F8DFD7DEF42E9B578C911 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B500DD32183EF4900083C300 /* PBXTargetDependency */,
+			);
+			name = AcceptanceTests;
+			productName = AcceptanceTests;
+			productReference = B500DD23183EF4900083C300 /* AcceptanceTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		B5D5D4BE17FC601700F052FE /* doge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5D5D4F117FC601700F052FE /* Build configuration list for PBXNativeTarget "doge" */;
@@ -528,6 +619,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Pepper Labs";
 				TargetAttributes = {
+					B500DD22183EF4900083C300 = {
+						TestTargetID = B5D5D4BE17FC601700F052FE;
+					};
 					B5D5D4DF17FC601700F052FE = {
 						TestTargetID = B5D5D4BE17FC601700F052FE;
 					};
@@ -548,11 +642,20 @@
 			targets = (
 				B5D5D4BE17FC601700F052FE /* doge */,
 				B5D5D4DF17FC601700F052FE /* dogeTests */,
+				B500DD22183EF4900083C300 /* AcceptanceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B500DD21183EF4900083C300 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B500DD2D183EF4900083C300 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5D5D4BD17FC601700F052FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,6 +679,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6A6B3CA26714444BA247EAB7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C9F8DFD7DEF42E9B578C911 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AcceptanceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8423DD42736C4E4EB5CF8B9A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,6 +742,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B500DD1F183EF4900083C300 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B500DD39183EF9290083C300 /* PPLEditorTests.m in Sources */,
+				B500DD37183EF6230083C300 /* PPLPhotoPickingTests.m in Sources */,
+				B540F2F1183F02E4004A23BD /* KIFUITestActor+OnScreenHelpers.m in Sources */,
+				B540F2F4183F0430004A23BD /* UIView+ScreenPositionHelpers.m in Sources */,
+				B500DD3C183EF9830083C300 /* KIFUITestActor+NavigationHelpers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5D5D4BB17FC601700F052FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,13 +792,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D5D4EE17FC601700F052FE /* dogeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B500DD32183EF4900083C300 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5D5D4BE17FC601700F052FE /* doge */;
+			targetProxy = B500DD31183EF4900083C300 /* PBXContainerItemProxy */;
+		};
 		B5D5D4E617FC601700F052FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5D5D4BE17FC601700F052FE /* doge */;
@@ -662,6 +811,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B500DD2B183EF4900083C300 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B500DD2C183EF4900083C300 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B5D5D4CB17FC601700F052FE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -681,6 +838,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B500DD33183EF4900083C300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324C7B9F1A364B34AEB843BB /* Pods-AcceptanceTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/doge.app/doge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AcceptanceTests/AcceptanceTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AcceptanceTests/AcceptanceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B500DD34183EF4900083C300 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324C7B9F1A364B34AEB843BB /* Pods-AcceptanceTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/doge.app/doge";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AcceptanceTests/AcceptanceTests-Prefix.pch";
+				INFOPLIST_FILE = "AcceptanceTests/AcceptanceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		B5D5D4EF17FC601700F052FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -860,6 +1061,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B500DD35183EF4900083C300 /* Build configuration list for PBXNativeTarget "AcceptanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B500DD33183EF4900083C300 /* Debug */,
+				B500DD34183EF4900083C300 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5D5D4BA17FC601700F052FE /* Build configuration list for PBXProject "doge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

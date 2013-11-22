@@ -20,16 +20,16 @@
   if (self = [super init]) {
     self.fullImageView = [[UIImageView alloc] init];
     self.fullImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:self.imageView];
-    self.imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.imageView.frame = CGRectMake(0,0,200,200);
+    [self addSubview:self.fullImageView];
+    self.fullImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.fullImageView.frame = CGRectMake(0,0,200,200);
   }
   return self;
 }
 
 - (instancetype) initWithImage:(PPLImage *)image {
   if (self = [self init]) {
-    self.image = image;
+    self.dogeImage = image;
   }
   return self;
 }

@@ -43,7 +43,7 @@
 #endif
   
 #if LOCALYTICS_ON
-  [[LocalyticsSession shared] tagEvent:@"Options Saved"];
+  [[LocalyticsSession shared] tagEvent:checkpointName];
 #endif
 }
 

@@ -38,6 +38,7 @@
 
 - (id) init {
   if (self = [super init]) {
+    self.accessibilityLabel = @"Label editor";
     [self makeConstraints:^(MASConstraintMaker *make) {
       make.width.equalTo(@WIDTH);
       make.height.equalTo(@HEIGHT);
@@ -54,6 +55,7 @@
                              @"so picture"];
     
     self.textField = [[PPLInsetTextField alloc] init];
+    self.textField.accessibilityLabel = @"Doge text field";
     self.textField.font = [UIFont fontWithName:DOGE_FONT_NAME size:TEXT_FIELD_FONT_SIZE];
     self.textField.textColor = DOGE_STEEL;
     self.textField.text = dogeStrings.sampleOne;
@@ -81,7 +83,7 @@
       make.height.equalTo(@COLOUR_PICKER_HEIGHT);
     }];
     
-    NSString *cancelButtonText = NSLocalizedString(@"cancel", @"cancel button text");
+    NSString *cancelButtonText = NSLocalizedString(@"Cancel", @"cancel button text");
     self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.cancelButton setTitle:cancelButtonText forState:UIControlStateNormal];
     [self.cancelButton setTitleColor:DOGE_RED forState:UIControlStateNormal];
@@ -96,7 +98,7 @@
                           action:@selector(cancelButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
     
-    NSString *confirmButtonText = NSLocalizedString(@"add", @"confirm button text");
+    NSString *confirmButtonText = NSLocalizedString(@"Add", @"confirm button text");
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.confirmButton setTitle:confirmButtonText forState:UIControlStateNormal];
     [self.confirmButton setTitleColor:DOGE_RED forState:UIControlStateNormal];
@@ -168,9 +170,9 @@
   NSString *confirmButtonText;
   
   if (self.configuration == PPLLabelEditorViewConfigurationCreate) {
-    confirmButtonText = NSLocalizedString(@"add", @"confirm button text");
+    confirmButtonText = NSLocalizedString(@"Add", @"confirm button text");
   } else {
-    confirmButtonText = NSLocalizedString(@"update", @"confirm button text");
+    confirmButtonText = NSLocalizedString(@"Update", @"confirm button text");
   }
   
   [self.confirmButton setTitle:confirmButtonText forState:UIControlStateNormal];

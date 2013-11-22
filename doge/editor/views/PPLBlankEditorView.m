@@ -26,6 +26,7 @@
     UIImage *highlightedChoosePhotoButton = [UIImage imageNamed:@"choose-photo-button_highlighted"];
     
     self.choosePhotoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.choosePhotoButton.accessibilityLabel = @"Choose photo";
     [self.choosePhotoButton setImage:normalChoosePhotoButton forState:UIControlStateNormal];
     [self.choosePhotoButton setImage:highlightedChoosePhotoButton forState:UIControlStateHighlighted];
     

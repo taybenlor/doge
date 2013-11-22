@@ -6,6 +6,10 @@ target "doge" do
   pod 'EnumeratorKit'
 end
 
+target 'AcceptanceTests', :exclusive => true do
+  pod 'KIF', '~> 2.0'
+end
+
 target "dogeTests" do
 
 end

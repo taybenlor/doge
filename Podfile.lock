@@ -4,14 +4,17 @@ PODS:
   - EnumeratorKit/Core (0.1.1):
     - EnumeratorKit/EKFiber
   - EnumeratorKit/EKFiber (0.1.1)
+  - KIF (2.0.0)
   - Masonry (0.2.4)
 
 DEPENDENCIES:
   - EnumeratorKit
+  - KIF (~> 2.0)
   - Masonry
 
 SPEC CHECKSUMS:
   EnumeratorKit: 811a35e8f9a7f043f4a92492af0e1b0f70b5ec48
+  KIF: ff3b46deb62ce3f8e99c6a2c786729e1eea241ba
   Masonry: 73df2f346bd1a0044dc9de969aa45aea2f8a9bd8
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.28.0

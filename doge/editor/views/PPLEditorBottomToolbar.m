@@ -21,6 +21,8 @@
 
 - (id) init {
   if (self = [super init]) {
+    self.accessibilityLabel = @"Bottom toolbar";
+    
     self.editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit-button.png"]
                                                        style:UIBarButtonItemStylePlain
                                                       target:self
@@ -42,6 +44,11 @@
     self.increaseSizeButton.width = 65;
     self.decreaseSizeButton.width = 65;
     self.deleteButton.width = 65;
+    
+    self.editButton.accessibilityLabel = @"Edit selected doge text";
+    self.increaseSizeButton.accessibilityLabel = @"Increase selected doge text size";
+    self.decreaseSizeButton.accessibilityLabel = @"Decrease selected doge text size";
+    self.deleteButton.accessibilityLabel = @"Delete selected doge text";
     
     self.barStyle = UIBarStyleDefault;
     self.translucent = NO;

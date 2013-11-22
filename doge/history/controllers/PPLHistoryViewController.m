@@ -19,6 +19,7 @@ static NSString *HistoryCellIdentifier = @"PPLHistoryCell";
 
 - (id) init {
   if (self = [super initWithStyle:UITableViewStylePlain]) {
+    self.view.backgroundColor = DOGE_STEEL_DARK;
   }
   return self;
 }
